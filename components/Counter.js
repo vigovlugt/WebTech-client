@@ -1,3 +1,5 @@
+import { html } from "../utils/utils.js";
+
 export default class Counter extends HTMLElement {
   static get observedAttributes() {
     return ["num"];
@@ -18,7 +20,7 @@ export default class Counter extends HTMLElement {
   render() {
     const num = this.getAttribute("num");
 
-    this.innerHTML = `<button>Counter: ${num}</button>`;
+    this.innerHTML = html`<button>Counter: ${num}</button>`;
   }
 }
 
