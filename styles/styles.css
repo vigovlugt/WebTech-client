@@ -31,6 +31,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  margin-bottom: 1rem;
 
   color: white;
 
@@ -49,4 +50,5 @@ button {
   color: white;
   font-size: 1.5rem;
   border-radius: 0.25rem;
+  cursor: pointer;
 }

@@ -2,7 +2,7 @@ export default class HelloMessage extends HTMLElement {
   constructor() {
     super();
 
-    const { name } = this.dataset;
+    const name = this.getAttribute("name");
 
     this.innerHTML = `<h1>Hello ${name}</h1>`;
   }
