@@ -1,0 +1,6 @@
+always-run:
+  script: 
+    - cd /var/www/webtech-client
+    - git pull
+  only:
+    - master
