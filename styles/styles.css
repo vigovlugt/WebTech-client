@@ -52,3 +52,12 @@ button {
   border-radius: 0.25rem;
   cursor: pointer;
 }
+
+.badge {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  border-radius: 0.25rem;
+}

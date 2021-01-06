@@ -7,6 +7,7 @@ import IndexPage from "./views/IndexPage.js";
 // Import components
 import "./components/HelloMessage.js";
 import "./components/Counter.js";
+import "./components/UserBadge.js";
 
 new Router(
   [
