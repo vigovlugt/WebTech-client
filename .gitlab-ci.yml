@@ -1,0 +1,4 @@
+always-run:
+  script: 
+    - cd /var/html/webtech-client
+    - git pull
