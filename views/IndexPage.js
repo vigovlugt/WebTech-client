@@ -26,7 +26,7 @@ export default class IndexPage extends HTMLElement {
   }
 
   async getUsers() {
-    const res = await fetch("http://agile114.science.uva.nl/api/users.php");
+    const res = await fetch("https://agile114.science.uva.nl/api/users.php");
     const json = await res.json();
     console.log("USERS: ", json);
 
