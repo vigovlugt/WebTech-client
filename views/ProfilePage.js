@@ -28,6 +28,7 @@ export default class ProfilePage extends HTMLElement {
         url: "",
       },
     ],
+    display_name: "",
   };
 
   render() {
@@ -40,7 +41,7 @@ export default class ProfilePage extends HTMLElement {
             height="128"
             width="128"
           />
-          <h1 class="profile-name">${AuthService.instance.user.name}</h1>
+          <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
         </div>
         <pre style="width:1000px;overflow:hidden;">
 ${JSON.stringify(this.spotifyProfile, null, 2)}
@@ -56,7 +57,10 @@ ${JSON.stringify(this.spotifyProfile, null, 2)}
   }
 
   async fetchProfile() {
-    const userId = AuthService.instance.getUserId();
+    let userId = AuthService.instance.getUserId();
+    if (window.Router.currentMatch[1]) {
+      userId = window.Router.currentMatch[1];
+    }
 
     const res = await fetch(
       "https://agile114.science.uva.nl/api/spotify/profile.php?id=" + userId,

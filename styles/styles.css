@@ -30,7 +30,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   margin-bottom: 1rem;
 
   color: white;
@@ -63,7 +63,7 @@ button {
 }
 
 .profile-image {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
 }

@@ -1,28 +1,52 @@
+const route404 = {
+  page: null,
+};
+
 export default class Router {
   routes = [];
-  mode = null;
+
+  currentRoute = null;
+  currentMatch = null;
+  currentPage = null;
 
   constructor(routes, element, styleElement) {
     this.routes = routes;
     this.element = element;
     this.styleElement = styleElement;
 
-    window.addEventListener("load", () => this.onRouteChange());
+    this.onRouteChange();
     window.addEventListener("popstate", () => this.onRouteChange());
+
     window.Router = this;
   }
 
   onRouteChange() {
     const currentPath = window.location.pathname;
+    console.log("PATH:", currentPath);
 
+    let routeMatch = null;
     let route =
-      this.routes.find((r) => r.path === currentPath) || this.routes[0];
+      this.routes.find((r) => {
+        const match = r.path.exec(currentPath);
+
+        if (match) {
+          routeMatch = match;
+          return true;
+        }
+      }) || this.routes[0];
+
+    this.currentRoute = route;
+    this.currentMatch = routeMatch;
 
     this.setPage(route.page);
   }
 
   setPage(page) {
-    console.log("SETTING PAGE TO:", page.pageName);
+    if (page == null) {
+      this.element.innerHTML = "<h1>Route not found</h1>";
+      return;
+    }
+
     this.setStyle(page.style);
 
     this.element.innerHTML = "";

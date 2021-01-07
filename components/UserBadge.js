@@ -6,7 +6,10 @@ export default class UserBadge extends HTMLElement {
 
     const name = this.getAttribute("name");
 
-    this.innerHTML = html`<span class="badge">${name}</span>`;
+    this.innerHTML = html`<span class="badge cursor-pointer">${name}</span>`;
+    this.onclick = () => {
+      window.Router.goto("/profile/" + this.getAttribute("id"));
+    };
   }
 }
 

@@ -18,11 +18,11 @@ async function startServices() {
   new Router(
     [
       {
-        path: "/",
+        path: /\/$/i,
         page: IndexPage,
       },
       {
-        path: "/profile",
+        path: /\/profile\/?(.*?)$/i,
         page: ProfilePage,
       },
     ],

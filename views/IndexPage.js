@@ -14,7 +14,12 @@ export default class IndexPage extends HTMLElement {
         <h1>Users:</h1>
         ${this.users
           .map(
-            (u) => html`<user-badge name="${u.name}" class="mr-4"></user-badge>`
+            (u) =>
+              html`<user-badge
+                name="${u.name}"
+                id="${u.id}"
+                class="mr-4"
+              ></user-badge>`
           )
           .join("")}
       </div>
