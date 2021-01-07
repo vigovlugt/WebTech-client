@@ -1,3 +1,4 @@
+import AuthService from "../services/AuthService.js";
 import { html } from "../utils/utils.js";
 
 export default class ProfilePage extends HTMLElement {
@@ -26,7 +27,7 @@ export default class ProfilePage extends HTMLElement {
       <div class="container">
         <div class="profile-header">
           <img class="profile-avatar" src="https://via.placeholder.com/128" />
-          <h1 class="profile-name">User</h1>
+          <h1 class="profile-name">${AuthService.instance.user.name}</h1>
         </div>
       </div>
     `;

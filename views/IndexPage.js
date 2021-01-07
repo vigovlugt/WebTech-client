@@ -1,3 +1,4 @@
+import AuthService from "../services/AuthService.js";
 import { html } from "../utils/utils.js";
 
 export default class IndexPage extends HTMLElement {
@@ -26,9 +27,10 @@ export default class IndexPage extends HTMLElement {
   }
 
   async getUsers() {
-    const res = await fetch("https://agile114.science.uva.nl/api/users.php");
+    const res = await fetch("https://agile114.science.uva.nl/api/users.php", {
+      headers: AuthService.instance.getFetchHeaders(),
+    });
     const json = await res.json();
-    console.log("USERS: ", json);
 
     this.users = json;
     this.render();
