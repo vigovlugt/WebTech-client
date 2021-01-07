@@ -5,11 +5,13 @@ export default class AuthService {
   user = null;
 
   constructor() {
+    AuthService.instance = this;
+  }
+
+  init() {
     this.setAccessToken();
 
     this.setUser();
-
-    AuthService.instance = this;
   }
 
   setUser() {
@@ -23,6 +25,10 @@ export default class AuthService {
     return {
       Authorization: `Bearer ${this.accessToken}`,
     };
+  }
+
+  getUserId() {
+    return this.user.sub;
   }
 
   setAccessToken() {
