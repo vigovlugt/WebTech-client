@@ -10,11 +10,12 @@ export default class ProfilePage extends HTMLElement {
       width: 128px;
       height: 128px;
       margin-right: 1rem;
+      object-fit: cover;
     }
 
     .profile-header {
       display: flex;
-      align-items: baseline;
+      align-items: flex-end;
     }
 
     .profile-name {
@@ -25,16 +26,20 @@ export default class ProfilePage extends HTMLElement {
   spotifyProfile = {
     images: [
       {
-        url: "",
+        url: "/images/profile-placeholder.png",
       },
     ],
     display_name: "",
+    href: "",
   };
 
   render() {
     this.innerHTML = html`
       <div class="container">
-        <div class="profile-header">
+        <div
+          class="profile-header cursor-pointer"
+          onclick="window.open('${this.spotifyProfile.href}')"
+        >
           <img
             class="profile-avatar"
             src="${this.spotifyProfile.images[0].url}"
@@ -43,10 +48,6 @@ export default class ProfilePage extends HTMLElement {
           />
           <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
         </div>
-        <pre style="width:1000px;overflow:hidden;">
-${JSON.stringify(this.spotifyProfile, null, 2)}
-        </pre
-        >
       </div>
     `;
   }
