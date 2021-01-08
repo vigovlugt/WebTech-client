@@ -30,7 +30,9 @@ export default class ProfilePage extends HTMLElement {
       },
     ],
     display_name: "",
-    href: "",
+    external_urls: {
+      spotify: "",
+    },
   };
 
   render() {
@@ -38,7 +40,7 @@ export default class ProfilePage extends HTMLElement {
       <div class="container">
         <div
           class="profile-header cursor-pointer"
-          onclick="window.open('${this.spotifyProfile.href}')"
+          onclick="window.open('${this.spotifyProfile.external_urls.spotify}')"
         >
           <img
             class="profile-avatar"
