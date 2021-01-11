@@ -18,6 +18,7 @@ export default class IndexPage extends HTMLElement {
               html`<user-badge
                 name="${u.name}"
                 id="${u.id}"
+                online="${u.online}"
                 class="mr-4"
               ></user-badge>`
           )

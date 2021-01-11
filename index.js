@@ -10,10 +10,12 @@ import IndexPage from "./views/IndexPage.js";
 import "./components/HelloMessage.js";
 import "./components/Counter.js";
 import "./components/UserBadge.js";
+import SyncService from "./services/SyncService.js";
 
 async function startServices() {
   new AuthService().init();
   await new SpotifyProfileService().init();
+  new SyncService().init();
 
   new Router(
     [
