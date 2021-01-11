@@ -1,4 +1,7 @@
 export default class AuthService {
+  /**
+   * @type AuthService;
+   */
   static instance;
 
   accessToken = null;

@@ -55,12 +55,20 @@ button {
 }
 
 .badge {
-  background-color: var(--primary);
-  color: white;
   padding: 0.35em 0.65em;
   font-size: 0.75em;
   font-weight: 700;
   border-radius: 0.25rem;
+}
+
+.badge-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.badge-dark {
+  background-color: var(--bg-light);
+  color: var(--primary);
 }
 
 .profile-image {
