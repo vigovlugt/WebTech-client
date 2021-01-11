@@ -1,6 +1,6 @@
 :root {
-  --bg: #181818;
-  --bg-light: #282828;
+  --bg: #1f1f1f;
+  --bg-light: #181818;
   --primary: #1db954;
 }
 
@@ -31,7 +31,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 
   color: white;
 
