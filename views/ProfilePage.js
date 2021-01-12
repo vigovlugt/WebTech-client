@@ -101,14 +101,6 @@ export default class ProfilePage extends HTMLElement {
               hello
           </div>
         </div>
-<<<<<<< HEAD
-=======
-        <div class="profile-statistics"></div>
-        <pre style="margin-left:20%;width:1000px;overflow:hidden;">
-${JSON.stringify(this.spotifyProfile, null, 2)}
-        </pre
-        >
->>>>>>> a313059043aa5f0e9dad4c150ea6b880be917aa4
       </div>
       <div class="profile-statistics">
     </div>
