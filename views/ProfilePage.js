@@ -27,7 +27,7 @@ export default class ProfilePage extends HTMLElement {
       height: 100%;
       width: 17.5%;
       position: absolute;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
       left: 0px;
     }
 
@@ -35,17 +35,17 @@ export default class ProfilePage extends HTMLElement {
       height: 100%;
       width: 17.5%;
       position: absolute;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
       right: 0px;
     }
 
     .profile-info {
       height: 100%;
-      width: 17.5%;
-      position: absolute;
       width: 20%;
-      background-color: red;
-      left: 0px;
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
     }
   </style>`;
 
