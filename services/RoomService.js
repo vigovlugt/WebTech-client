@@ -1,5 +1,4 @@
 import MessageType from "../constants/MessageType.js";
-import AuthService from "./AuthService.js";
 import SyncService from "./SyncService.js";
 
 export default class RoomService extends EventTarget {
@@ -19,6 +18,11 @@ export default class RoomService extends EventTarget {
 
   getRoom(id) {
     return this.rooms.find((r) => r.id == id);
+  }
+
+  joinRoom(id) {
+    console.log("JOINING ROOM:", id);
+    SyncService.instance.sendMessage(MessageType.JOIN_ROOM, { id: +id });
   }
 
   onRoomSync(rooms) {

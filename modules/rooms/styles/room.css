@@ -11,10 +11,23 @@
   height: 150px;
   padding: 1rem;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .room-container {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+}
+
+.room-card-profile-images {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.room-card-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.25rem;
 }

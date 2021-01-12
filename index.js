@@ -1,6 +1,5 @@
 import Router from "./modules/router/router.js";
 import AuthService from "./services/AuthService.js";
-import SpotifyProfileService from "./services/SpotifyProfileService.js";
 import SyncService from "./services/SyncService.js";
 import RoomService from "./services/RoomService.js";
 
@@ -18,7 +17,14 @@ import "./modules/rooms/components/RoomOverview.js";
 
 async function startServices() {
   new AuthService().init();
-  await new SpotifyProfileService().init();
+  document
+    .querySelector(".profile-image")
+    .setAttribute(
+      "src",
+      "https://agile114.science.uva.nl/api/users/image.php?id=" +
+        AuthService.instance.user.sub
+    );
+
   new SyncService().init();
   new RoomService().init();
 
