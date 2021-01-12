@@ -83,7 +83,6 @@ export default class ProfilePage extends HTMLElement {
 
   render() {
     this.innerHTML = html`
-    <div class="container">
       <div class="profile-header">
         <div class="sidebar-left"></div>
         <div class="sidebar-right"></div>
@@ -103,7 +102,6 @@ export default class ProfilePage extends HTMLElement {
         </div>
       </div>
       <div class="profile-statistics">
-    </div>
     `;
   }
 
