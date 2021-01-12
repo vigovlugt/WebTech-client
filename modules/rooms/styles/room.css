@@ -1,0 +1,20 @@
+.room-overview-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* CARD */
+.room-card {
+  background-color: var(--primary);
+  color: white;
+  width: 250px;
+  height: 150px;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.room-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}

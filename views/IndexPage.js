@@ -11,7 +11,7 @@ export default class IndexPage extends HTMLElement {
   render() {
     this.innerHTML = html`
       <div class="container">
-        <h1>Users:</h1>
+        <h2>Users</h2>
         ${this.users
           .map(
             (u) =>
@@ -23,6 +23,7 @@ export default class IndexPage extends HTMLElement {
               ></user-badge>`
           )
           .join("")}
+        <room-overview style="margin-top:1rem;" />
       </div>
     `;
   }

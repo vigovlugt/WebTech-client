@@ -1,6 +1,9 @@
+@import "../modules/rooms/styles/room.css";
+
 :root {
   --bg: #1f1f1f;
   --bg-light: #181818;
+  --bg-semi-light: #1b1b1b;
   --primary: #1db954;
 }
 
@@ -49,7 +52,7 @@ button {
   border: 0;
   background-color: var(--primary);
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   border-radius: 0.25rem;
   cursor: pointer;
 }

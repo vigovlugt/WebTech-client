@@ -15,7 +15,7 @@ export default class ProfilePage extends HTMLElement {
     }
 
     .profile-header {
-      margin:0 auto;
+      margin: 0 auto;
     }
 
     .profile-name {
@@ -43,7 +43,7 @@ export default class ProfilePage extends HTMLElement {
   spotifyProfile = {
     images: [
       {
-        url: "",
+        url: "/images/profile-placeholder.png",
       },
     ],
     display_name: "",
@@ -63,8 +63,7 @@ export default class ProfilePage extends HTMLElement {
           />
           <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
         </div>
-        <div class="profile-statistics">
-        </div>
+        <div class="profile-statistics"></div>
         <pre style="margin-left:20%;width:1000px;overflow:hidden;">
 ${JSON.stringify(this.spotifyProfile, null, 2)}
         </pre

@@ -1,10 +1,15 @@
+import MessageType from "../constants/MessageType.js";
 import AuthService from "./AuthService.js";
+import RoomService from "./RoomService.js";
 
 export default class SyncService {
+  /**
+   * @type SyncService
+   */
   static instance;
 
   /**
-   * @type WebSocket;
+   * @type WebSocket
    */
   socket = null;
 
@@ -22,7 +27,7 @@ export default class SyncService {
   onConnected(e) {
     console.log("WEBSOCKET CONNECTED");
 
-    this.sendMessage("AUTHENTICATE", {
+    this.sendMessage(MessageType.AUTHENTICATE, {
       accessToken: AuthService.instance.accessToken,
     });
   }
@@ -31,16 +36,17 @@ export default class SyncService {
     const { type, data } = JSON.parse(e.data);
 
     switch (type) {
-      case "AUTHENTICATED":
+      case MessageType.AUTHENTICATED:
         this.onAuthenticated();
+        break;
+      case MessageType.ROOM_LIST_SYNC:
+        RoomService.instance.onRoomSync(data);
         break;
     }
   }
 
   onAuthenticated() {
     console.log("WEBSOCKET AUTHENTICATED");
-
-    this.sendMessage("PAUSE", null);
   }
 
   sendMessage(type, data) {
