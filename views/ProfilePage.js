@@ -64,7 +64,7 @@ export default class ProfilePage extends HTMLElement {
         <div class="profile-header">
           <div class="sidebar-left"></div>
           <div class="sidebar-right"></div>
-          <div class="profile-bar"></div>
+          <div class="profile-bar">hello</div>
           <img
             class="profile-avatar"
             src="${this.spotifyProfile.images[0].url}"
