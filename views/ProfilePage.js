@@ -98,7 +98,7 @@ export default class ProfilePage extends HTMLElement {
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
           </div>
           <div class="profile-stats">
-              hello
+              hello2
           </div>
         </div>
       </div>
