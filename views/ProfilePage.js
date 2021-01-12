@@ -59,7 +59,7 @@ export default class ProfilePage extends HTMLElement {
     }
 
     .profile {
-      width: 65%;
+      width: 100%;
       position: relative;
       margin:0 auto;
       padding: 0;
