@@ -14,10 +14,6 @@ export default class ProfilePage extends HTMLElement {
       display: block;
     }
 
-    .profile-header {
-      margin: 0 auto;
-    }
-
     .profile-name {
       font-size: 3rem;
       text-align: center;
@@ -26,50 +22,46 @@ export default class ProfilePage extends HTMLElement {
     .sidebar-left {
       height: 100%;
       width: 17.5%;
-      position: absolute;
-      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
-      left: 0px;
+      position: fixed;
+      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      left: 0;
     }
 
     .sidebar-right {
       height: 100%;
       width: 17.5%;
-      position: absolute;
-      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
-      right: 0px;
+      position: fixed;
+      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      right: 0;
     }
 
     .profile-info {
-      height: 1000%;
-      position: relative;
+      position:relative;
       width: 30%;
       background-color: #C4C4C4;
-      left: 0px;
       margin:0 0;
-      float:left;
+      float: left;
     }
     .profile-stats {
-      height: 1000%;
-      position: relative;
+      position:relative;
       width: 70%;
-      background-color: #110F0F;
-      left: 0px;
+      background-color: yellow; /* #110F0F;*/
       margin:0 0;
-      float:left;
-    }
-
-    .profile {
-      width: 100%;
-      height: 1000%;
-      position: absolute;
-      margin:0 auto;
-      padding: 0;
-      border: 0;
-
+      float: right;
     }
 
     body {
         margin: 0;
+    }
+
+    .profile {
+      position:absolute;
+      top:0px;
+      width: 65%;
+      right: 17.5%;
+      background-color: blue; /* #110F0F;*/
+      margin:0 0;
+      display:flex
     }
   </style>`;
 
@@ -84,10 +76,10 @@ export default class ProfilePage extends HTMLElement {
 
   render() {
     this.innerHTML = html`
-      <div class="profile-header">
+      <div class="container">
         <div class="sidebar-left"></div>
         <div class="sidebar-right"></div>
-        <div class="profile" id="test">
+        <div class="profile">
           <div class="profile-info">
             <img
               class="profile-avatar"
