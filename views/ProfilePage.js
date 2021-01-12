@@ -40,12 +40,35 @@ export default class ProfilePage extends HTMLElement {
     }
 
     .profile-info {
-      height: 100%;
-      width: 17.5%;
-      position: absolute;
-      width: 20%;
-      background-color: red;
+      height: 1000%;
+      position: relative;
+      width: 30%;
+      background-color: #C4C4C4;
       left: 0px;
+      margin:0 0;
+      float:left;
+    }
+    .profile-stats {
+      height: 1000%;
+      position: relative;
+      width: 70%;
+      background-color: #110F0F;
+      left: 0px;
+      margin:0 0;
+      float:left;
+    }
+
+    .profile {
+      width: 65%;
+      position: relative;
+      margin:0 auto;
+      padding: 0;
+      border: 0;
+
+    }
+
+    body {
+        margin: 0;
     }
   </style>`;
 
@@ -60,29 +83,27 @@ export default class ProfilePage extends HTMLElement {
 
   render() {
     this.innerHTML = html`
-      <div class="container">
-        <div class="profile-header">
-          <div class="sidebar-left"></div>
-          <div class="sidebar-right"></div>
-          <div class="profile">
-            <div class="profile-info">
-              <img
-                class="profile-avatar"
-                src="${this.spotifyProfile.images[0].url}"
-                height="128"
-                width="128"
-              />
-              <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-            </div>
+    <div class="container">
+      <div class="profile-header">
+        <div class="sidebar-left"></div>
+        <div class="sidebar-right"></div>
+        <div class="profile">
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="${this.spotifyProfile.images[0].url}"
+              height="128"
+              width="128"
+            />
+            <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+          </div>
+          <div class="profile-stats">
+              hello
           </div>
         </div>
-        <div class="profile-statistics">
-        </div>
-        <pre style="margin-left:20%;width:1000px;overflow:hidden;">
-${JSON.stringify(this.spotifyProfile, null, 2)}
-        </pre
-        >
       </div>
+      <div class="profile-statistics">
+    </div>
     `;
   }
 
