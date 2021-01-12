@@ -38,6 +38,15 @@ export default class ProfilePage extends HTMLElement {
       background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
       right: 0px;
     }
+
+    .profile-info {
+      height: 100%;
+      width: 17.5%;
+      position: absolute;
+      width: 20%;
+      background-color: red;
+      left: 0px;
+    }
   </style>`;
 
   spotifyProfile = {
@@ -55,13 +64,17 @@ export default class ProfilePage extends HTMLElement {
         <div class="profile-header">
           <div class="sidebar-left"></div>
           <div class="sidebar-right"></div>
-          <img
-            class="profile-avatar"
-            src="${this.spotifyProfile.images[0].url}"
-            height="128"
-            width="128"
-          />
-          <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+          <div class="profile">
+            <div class="profile-info">
+              <img
+                class="profile-avatar"
+                src="${this.spotifyProfile.images[0].url}"
+                height="128"
+                width="128"
+              />
+              <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+            </div>
+          </div>
         </div>
         <div class="profile-statistics"></div>
         <pre style="margin-left:20%;width:1000px;overflow:hidden;">
