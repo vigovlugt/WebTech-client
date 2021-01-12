@@ -87,7 +87,7 @@ export default class ProfilePage extends HTMLElement {
       <div class="profile-header">
         <div class="sidebar-left"></div>
         <div class="sidebar-right"></div>
-        <div class="profile">
+        <div class="profile" id="test">
           <div class="profile-info">
             <img
               class="profile-avatar"
