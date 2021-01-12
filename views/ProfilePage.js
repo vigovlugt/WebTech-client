@@ -27,7 +27,7 @@ export default class ProfilePage extends HTMLElement {
       height: 100%;
       width: 17.5%;
       position: absolute;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
       left: 0px;
     }
 
@@ -35,17 +35,41 @@ export default class ProfilePage extends HTMLElement {
       height: 100%;
       width: 17.5%;
       position: absolute;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(29,185,84,1) 100%, rgba(0,212,255,1) 100%);
       right: 0px;
     }
 
     .profile-info {
-      height: 100%;
-      width: 17.5%;
-      position: absolute;
-      width: 20%;
-      background-color: red;
+      height: 1000%;
+      position: relative;
+      width: 30%;
+      background-color: #C4C4C4;
       left: 0px;
+      margin:0 0;
+      float:left;
+    }
+    .profile-stats {
+      height: 1000%;
+      position: relative;
+      width: 70%;
+      background-color: #110F0F;
+      left: 0px;
+      margin:0 0;
+      float:left;
+    }
+
+    .profile {
+      width: 100%;
+      height: 1000%;
+      position: absolute;
+      margin:0 auto;
+      padding: 0;
+      border: 0;
+
+    }
+
+    body {
+        margin: 0;
     }
   </style>`;
 
@@ -60,28 +84,25 @@ export default class ProfilePage extends HTMLElement {
 
   render() {
     this.innerHTML = html`
-      <div class="container">
-        <div class="profile-header">
-          <div class="sidebar-left"></div>
-          <div class="sidebar-right"></div>
-          <div class="profile">
-            <div class="profile-info">
-              <img
-                class="profile-avatar"
-                src="${this.spotifyProfile.images[0].url}"
-                height="128"
-                width="128"
-              />
-              <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-            </div>
+      <div class="profile-header">
+        <div class="sidebar-left"></div>
+        <div class="sidebar-right"></div>
+        <div class="profile" id="test">
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="${this.spotifyProfile.images[0].url}"
+              height="128"
+              width="128"
+            />
+            <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+          </div>
+          <div class="profile-stats">
+              hello2
           </div>
         </div>
-        <div class="profile-statistics"></div>
-        <pre style="margin-left:20%;width:1000px;overflow:hidden;">
-${JSON.stringify(this.spotifyProfile, null, 2)}
-        </pre
-        >
       </div>
+      <div class="profile-statistics">
     `;
   }
 
