@@ -39,13 +39,13 @@ export default class ProfilePage extends HTMLElement {
       right: 0px;
     }
 
-    .profile-bar {
+    .profile-info {
       height: 100%;
       width: 17.5%;
-      position: relative;
+      position: absolute;
       width: 20%;
       background-color: red;
-      right: 0px;
+      left: 0px;
     }
   </style>`;
 
@@ -64,14 +64,17 @@ export default class ProfilePage extends HTMLElement {
         <div class="profile-header">
           <div class="sidebar-left"></div>
           <div class="sidebar-right"></div>
-          <div class="profile-bar">hello</div>
-          <img
-            class="profile-avatar"
-            src="${this.spotifyProfile.images[0].url}"
-            height="128"
-            width="128"
-          />
-          <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+          <div class="profile">
+            <div class="profile-info">
+              <img
+                class="profile-avatar"
+                src="${this.spotifyProfile.images[0].url}"
+                height="128"
+                width="128"
+              />
+              <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+            </div>
+          </div>
         </div>
         <div class="profile-statistics">
         </div>
