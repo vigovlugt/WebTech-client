@@ -1,0 +1,41 @@
+.search-result {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
+}
+
+.search-result-name {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  color: #fff;
+}
+
+.search-result-artist {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.015em;
+  color: #b3b3b3;
+}
+
+.search-result-add {
+  margin-left: auto;
+  background-color: var(--bg);
+  font-size: 24px;
+}
+
+.search-result-add:focus {
+  outline: none;
+}

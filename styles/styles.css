@@ -1,5 +1,9 @@
 @import "../modules/rooms/styles/room.css";
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --bg: #1f1f1f;
   --bg-light: #181818;

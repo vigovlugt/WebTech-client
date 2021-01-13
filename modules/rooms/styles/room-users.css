@@ -1,0 +1,21 @@
+room-users {
+  flex: 1;
+  padding: 1rem;
+}
+
+.room-user {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  background-color: var(--bg);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.room-user-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+}

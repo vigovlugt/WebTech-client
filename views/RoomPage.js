@@ -28,7 +28,8 @@ export default class RoomPage extends HTMLElement {
     }
 
     .room-page-main {
-      flex-grow: 1;
+      display: flex;
+      height: calc(100vh - 226px);
     }
   </style>`;
 
@@ -41,24 +42,17 @@ export default class RoomPage extends HTMLElement {
         <h2 class="room-name">
           <div class="container">${room.name}</div>
         </h2>
-        <div class="room-page-main">Search - Queue - Users</div>
-        <room-player />
+        <div class="room-page-main">
+          <room-search></room-search>
+          <room-queue></room-queue>
+          <room-users></room-users>
+        </div>
+        <room-player></room-player>
       </div>
     `;
   }
 
   connectedCallback() {
-    this.render();
-    this.getUsers();
-  }
-
-  async getUsers() {
-    const res = await fetch("https://agile114.science.uva.nl/api/users.php", {
-      headers: AuthService.instance.getFetchHeaders(),
-    });
-    const json = await res.json();
-
-    this.users = json;
     this.render();
   }
 }

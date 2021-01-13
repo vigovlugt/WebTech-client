@@ -1,8 +1,22 @@
 @import "./room-player.css";
+@import "./room-users.css";
+@import "./room-queue.css";
+@import "./room-search.css";
+@import "./room-search-result.css";
+@import "./room-queue-track.css";
 
 .room-overview-header {
   display: flex;
   justify-content: space-between;
+}
+
+.room-section-header {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 2px;
+
+  margin-bottom: 0.5rem;
 }
 
 /* CARD */

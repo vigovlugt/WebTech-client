@@ -35,6 +35,10 @@ export default class RoomService extends EventTarget {
     SyncService.instance.sendMessage(MessageType.PLAY_ROOM);
   }
 
+  addToQueue(id) {
+    SyncService.instance.sendMessage(MessageType.ROOM_ADD_QUEUE, { id });
+  }
+
   onRoomListSync(rooms) {
     this.rooms = rooms;
     this.dispatchEvent(new Event(MessageType.ROOM_LIST_SYNC));

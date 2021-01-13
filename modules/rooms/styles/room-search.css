@@ -1,0 +1,33 @@
+room-search {
+  flex: 1;
+  padding: 1rem;
+}
+
+.room-search {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-search-input {
+  background-color: var(--bg);
+  border: 0;
+  color: white;
+  padding: 0.5rem;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.room-search-input:focus {
+  outline: none;
+}
+
+.room-search-results {
+  margin-top: 1rem;
+  overflow-y: scroll;
+}
+
+.room-search-results::-webkit-scrollbar {
+  width: 0;
+}

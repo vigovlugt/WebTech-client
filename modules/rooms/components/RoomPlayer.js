@@ -86,7 +86,7 @@ export default class RoomPlayer extends HTMLElement {
 
   disconnectedCallback() {
     RoomService.instance.removeEventListener(
-      MessageType.ROOM_LIST_SYNC,
+      MessageType.SYNC_ROOM,
       this.onRoomSync
     );
   }

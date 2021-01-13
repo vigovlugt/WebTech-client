@@ -18,7 +18,8 @@ export default class RoomCard extends HTMLElement {
             (u) =>
               html`<img
                 class="room-card-profile-image"
-                src="https://agile114.science.uva.nl/api/users/image.php?id=${u}"
+                src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
+                alt="${u.name}"
               />`
           )
           .join("")}

@@ -8,4 +8,5 @@ export default class MessageType {
   static SYNC_ROOM = "SYNC_ROOM";
   static PLAY_ROOM = "PLAY_ROOM";
   static PAUSE_ROOM = "PAUSE_ROOM";
+  static ROOM_ADD_QUEUE = "ROOM_ADD_QUEUE";
 }
