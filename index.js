@@ -14,6 +14,7 @@ import "./components/Counter.js";
 import "./components/UserBadge.js";
 import "./modules/rooms/components/RoomCard.js";
 import "./modules/rooms/components/RoomOverview.js";
+import "./modules/rooms/components/RoomPlayer.js";
 
 async function startServices() {
   new AuthService().init();

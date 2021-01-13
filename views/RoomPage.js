@@ -6,11 +6,29 @@ export default class RoomPage extends HTMLElement {
   static pageName = "room-page";
 
   static style = html`<style>
+    .room-page {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 84px);
+    }
+
     .room-name {
       background-color: var(--bg-semi-light);
       padding: 1rem;
       padding-top: 0.5rem;
       text-align: center;
+    }
+
+    .app {
+      background-color: var(--bg-light);
+    }
+
+    .room-page-player {
+      background-color: var(--bg);
+    }
+
+    .room-page-main {
+      flex-grow: 1;
     }
   </style>`;
 
@@ -23,7 +41,8 @@ export default class RoomPage extends HTMLElement {
         <h2 class="room-name">
           <div class="container">${room.name}</div>
         </h2>
-        <div class="container"></div>
+        <div class="room-page-main">Search - Queue - Users</div>
+        <room-player />
       </div>
     `;
   }

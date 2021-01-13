@@ -9,6 +9,8 @@ export default class RoomService extends EventTarget {
 
   rooms = [];
 
+  room = null;
+
   constructor() {
     super();
     RoomService.instance = this;
@@ -25,9 +27,22 @@ export default class RoomService extends EventTarget {
     SyncService.instance.sendMessage(MessageType.JOIN_ROOM, { id: +id });
   }
 
-  onRoomSync(rooms) {
+  pause() {
+    SyncService.instance.sendMessage(MessageType.PAUSE_ROOM);
+  }
+
+  play() {
+    SyncService.instance.sendMessage(MessageType.PLAY_ROOM);
+  }
+
+  onRoomListSync(rooms) {
     this.rooms = rooms;
     this.dispatchEvent(new Event(MessageType.ROOM_LIST_SYNC));
+  }
+
+  onSyncRoom(room) {
+    this.room = room;
+    this.dispatchEvent(new Event(MessageType.SYNC_ROOM));
   }
 
   createRoom(name) {

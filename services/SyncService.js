@@ -40,7 +40,10 @@ export default class SyncService {
         this.onAuthenticated();
         break;
       case MessageType.ROOM_LIST_SYNC:
-        RoomService.instance.onRoomSync(data);
+        RoomService.instance.onRoomListSync(data);
+        break;
+      case MessageType.SYNC_ROOM:
+        RoomService.instance.onSyncRoom(data);
         break;
     }
   }
@@ -49,7 +52,7 @@ export default class SyncService {
     console.log("WEBSOCKET AUTHENTICATED");
   }
 
-  sendMessage(type, data) {
+  sendMessage(type, data = null) {
     const json = JSON.stringify({ type, data });
 
     this.socket.send(json);
