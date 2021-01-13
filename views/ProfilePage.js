@@ -19,49 +19,26 @@ export default class ProfilePage extends HTMLElement {
       text-align: center;
     }
 
-    .sidebar-left {
-      height: 100%;
-      width: 17.5%;
-      position: fixed;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
-      left: 0;
-    }
-
-    .sidebar-right {
-      height: 100%;
-      width: 17.5%;
-      position: fixed;
-      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/387eb18b-ab74-4503-a97f-b5e6143eb21d/d2eybzq-986ca967-9887-4244-8deb-4f04d43f47bd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzg3ZWIxOGItYWI3NC00NTAzLWE5N2YtYjVlNjE0M2ViMjFkXC9kMmV5YnpxLTk4NmNhOTY3LTk4ODctNDI0NC04ZGViLTRmMDRkNDNmNDdiZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.aLewA490CmwbPu8V6Gz9c3nVfwYQHZeKiVIMI7dzlBk");
-      right: 0;
-    }
-
     .profile-info {
-      position:relative;
+      position: relative;
       width: 30%;
-      background-color: #C4C4C4;
-      margin:0 0;
+      background-color: #c4c4c4;
+      margin: 0 0;
       float: left;
     }
     .profile-stats {
-      position:relative;
       width: 70%;
       background-color: yellow; /* #110F0F;*/
-      margin:0 0;
+      margin: 0 0;
       float: right;
     }
 
     body {
-        margin: 0;
+      margin: 0;
     }
 
     .profile {
-      position:absolute;
-      top:0px;
-      width: 65%;
-      right: 17.5%;
-      background-color: blue; /* #110F0F;*/
-      margin:0 0;
-      display:flex
+      display: flex;
     }
   </style>`;
 
@@ -77,8 +54,6 @@ export default class ProfilePage extends HTMLElement {
   render() {
     this.innerHTML = html`
       <div class="container">
-        <div class="sidebar-left"></div>
-        <div class="sidebar-right"></div>
         <div class="profile">
           <div class="profile-info">
             <img
@@ -89,12 +64,10 @@ export default class ProfilePage extends HTMLElement {
             />
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
           </div>
-          <div class="profile-stats">
-              hello2
-          </div>
+          <div class="profile-stats">hello2</div>
         </div>
       </div>
-      <div class="profile-statistics">
+      <div class="profile-statistics"></div>
     `;
   }
 
