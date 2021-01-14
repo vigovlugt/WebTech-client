@@ -42,7 +42,7 @@ export default class SyncService {
       case MessageType.ROOM_LIST_SYNC:
         RoomService.instance.onRoomListSync(data);
         break;
-      case MessageType.SYNC_ROOM:
+      case MessageType.ROOM_SYNC:
         RoomService.instance.onSyncRoom(data);
         break;
     }

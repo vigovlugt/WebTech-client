@@ -21,6 +21,15 @@ const playSvg = html`<svg
   <path d="M4.018 14L14.41 8 4.018 2z"></path>
 </svg>`;
 
+const nextSvg = html`<svg
+  height="16"
+  width="16"
+  viewBox="0 0 16 16"
+  fill="currentColor"
+>
+  <path d="M11 3v4.119L3 2.5v11l8-4.619V13h2V3z"></path>
+</svg>`;
+
 export default class RoomPlayer extends HTMLElement {
   eventListener = null;
 
@@ -37,22 +46,29 @@ export default class RoomPlayer extends HTMLElement {
     }
     const isPlaying = room.playerState.isPlaying;
 
-    const svg = isPlaying ? pauseSvg : playSvg;
+    const playingSvg = isPlaying ? pauseSvg : playSvg;
+
+    const currentTrack = room.playerState.currentTrack;
 
     this.innerHTML = html`<div class="player-bar">
       <div class="player-track">
         <img
           class="player-track-image"
-          src="https://i.scdn.co/image/ab67616d000048519bbd79106e510d13a9a5ec33"
+          src="${currentTrack ? currentTrack.album.imageUrl : ""}"
         />
         <div class="player-track-info">
-          <a class="player-track-title">Song-title</a>
-          <a class="player-track-artist">Song-artist</a>
+          <a class="player-track-title"
+            >${currentTrack ? currentTrack.name : "-"}</a
+          >
+          <a class="player-track-artist"
+            >${currentTrack ? currentTrack.artist.name : "-"}</a
+          >
         </div>
       </div>
 
       <div class="player-controls">
-        <button class="player-pause">${svg}</button>
+        <button class="player-pause">${playingSvg}</button>
+        <button class="player-next">${nextSvg}</button>
       </div>
 
       <div class="player-settings">settings</div>
@@ -69,6 +85,10 @@ export default class RoomPlayer extends HTMLElement {
         RoomService.instance.play();
       }
     });
+
+    this.querySelector(".player-next").addEventListener("click", (e) => {
+      RoomService.instance.playNext();
+    });
   }
 
   onRoomSync() {
@@ -79,14 +99,14 @@ export default class RoomPlayer extends HTMLElement {
     this.render();
 
     this.eventListener = RoomService.instance.addEventListener(
-      MessageType.SYNC_ROOM,
+      MessageType.ROOM_SYNC,
       this.onRoomSync
     );
   }
 
   disconnectedCallback() {
     RoomService.instance.removeEventListener(
-      MessageType.SYNC_ROOM,
+      MessageType.ROOM_SYNC,
       this.onRoomSync
     );
   }

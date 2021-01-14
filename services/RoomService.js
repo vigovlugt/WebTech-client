@@ -23,16 +23,19 @@ export default class RoomService extends EventTarget {
   }
 
   joinRoom(id) {
-    console.log("JOINING ROOM:", id);
-    SyncService.instance.sendMessage(MessageType.JOIN_ROOM, { id: +id });
+    SyncService.instance.sendMessage(MessageType.ROOM_JOIN, { id: +id });
   }
 
   pause() {
-    SyncService.instance.sendMessage(MessageType.PAUSE_ROOM);
+    SyncService.instance.sendMessage(MessageType.ROOM_PAUSE);
   }
 
   play() {
-    SyncService.instance.sendMessage(MessageType.PLAY_ROOM);
+    SyncService.instance.sendMessage(MessageType.ROOM_PLAY);
+  }
+
+  playNext() {
+    SyncService.instance.sendMessage(MessageType.ROOM_PLAY_NEXT);
   }
 
   addToQueue(id) {
@@ -46,10 +49,10 @@ export default class RoomService extends EventTarget {
 
   onSyncRoom(room) {
     this.room = room;
-    this.dispatchEvent(new Event(MessageType.SYNC_ROOM));
+    this.dispatchEvent(new Event(MessageType.ROOM_SYNC));
   }
 
   createRoom(name) {
-    SyncService.instance.sendMessage(MessageType.CREATE_ROOM, { name });
+    SyncService.instance.sendMessage(MessageType.ROOM_CREATE, { name });
   }
 }

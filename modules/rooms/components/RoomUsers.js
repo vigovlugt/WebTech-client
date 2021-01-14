@@ -42,14 +42,14 @@ export default class RoomUsers extends HTMLElement {
     this.render();
 
     this.eventListener = RoomService.instance.addEventListener(
-      MessageType.SYNC_ROOM,
+      MessageType.ROOM_SYNC,
       this.onRoomSync
     );
   }
 
   disconnectedCallback() {
     RoomService.instance.removeEventListener(
-      MessageType.SYNC_ROOM,
+      MessageType.ROOM_SYNC,
       this.onRoomSync
     );
   }
