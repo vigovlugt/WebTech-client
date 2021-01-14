@@ -9,10 +9,11 @@
   --bg-light: #181818;
   --bg-semi-light: #1b1b1b;
   --primary: #1db954;
+  --border-grey: #4e4e4e;
 }
 
 body {
-  font-family: potify-circular, spotify-circular-cyrillic,
+  font-family: spotify-circular, spotify-circular-cyrillic,
     spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, helvetica,
     arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
   margin: 0px;
@@ -28,6 +29,24 @@ h4,
 h5,
 h5 {
   margin: 0;
+}
+
+h6 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -1px;
+  padding: 0 0 1em 0;
+  color: black;
+  font-weight: 900;
+}
+
+h7 {
+  margin: 0;
+  color: black;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 1em 1em 1em 0px;
 }
 
 img[src=""] {
