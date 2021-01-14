@@ -18,7 +18,7 @@ export default class ProfilePage extends HTMLElement {
     }
 
     .profile-name {
-      font-size: 3rem;
+      font-size: 1rem;
       text-align: center;
     }
 
