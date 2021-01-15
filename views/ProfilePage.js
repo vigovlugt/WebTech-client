@@ -63,6 +63,51 @@ export default class ProfilePage extends HTMLElement {
     country: ""
   };
 
+  track = {
+    name : "",
+    popularity : 0,
+    type : ""
+  }
+
+  artist = {
+    name : "",
+    popularity : 0,
+    type : ""
+  }
+
+  stats = {
+    medium_tracks: {
+      items: [
+        track
+      ]
+    },
+    long_tracks: {
+      items: [
+        track
+      ]
+    },
+    short_tracks: {
+      items: [
+        track
+      ]
+    },
+    medium_artists: {
+      items: [
+        artist
+      ]
+    },
+    long_artists: {
+      items: [
+        artist
+      ]
+    },
+    short_artists: {
+      items: [
+        artist
+      ]
+    }
+  }
+
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -85,7 +130,7 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7>/td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
-            <td class="Meer informatie"><h7>${JSON.stringify(this.spotifyProfile)}</h7>/td>
+            <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td>
           </div>
         </div>
       </div>`;
