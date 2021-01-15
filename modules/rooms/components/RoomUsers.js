@@ -18,19 +18,21 @@ export default class RoomUsers extends HTMLElement {
 
     this.innerHTML = html`<div class="room-users">
       <h2 class="room-section-header">Users</h2>
-      ${users.map(
-        (u) => html`
-          <div class="room-user">
-            <img
-              class="room-user-image"
-              src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
-            />
-            <div>
-              <h4>${u.name}</h4>
+      ${users
+        .map(
+          (u) => html`
+            <div class="room-user">
+              <img
+                class="room-user-image"
+                src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
+              />
+              <div>
+                <h4>${u.name}</h4>
+              </div>
             </div>
-          </div>
-        `
-      )}
+          `
+        )
+        .join("")}
     </div>`;
   }
 
