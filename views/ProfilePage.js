@@ -5,32 +5,37 @@ export default class ProfilePage extends HTMLElement {
   static pageName = "profile-page";
 
   static style = html`<style>
+    .app {
+      background: linear-gradient(0deg, rgba(10,43,8,1) 0%, rgba(22,46,27,1) 17%, rgba(41,83,56,1) 46%, rgba(29,185,84,1) 100%);
+    }
+
     .profile-avatar {
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100px;
+      height: 100px;
+      margin: 30px auto;
       display: block;
     }
 
     .profile-name {
-      font-size: 3rem;
+      font-size: 2rem;
       text-align: center;
     }
 
     .profile-info {
       position: relative;
-      width: 30%;
-      background-color: #c4c4c4;
+      background-color: var(--bg);
       margin: 0 0;
-      float: left;
+      flex: 1;
+      border: 1px var(--border-grey) solid;
     }
     .profile-stats {
-      width: 70%;
-      background-color: yellow; /* #110F0F;*/
+      background-color: white;
       margin: 0 0;
-      float: right;
+      flex: 2.5;
+      flex-direction: column;
+      display: flex;
+      padding: 2rem;
     }
 
     body {
@@ -49,6 +54,13 @@ export default class ProfilePage extends HTMLElement {
       },
     ],
     display_name: "",
+    email: "",
+    followers: {
+      total: 3829
+    },
+    id: "",
+    product: "",
+    country: ""
   };
 
   render() {
@@ -64,16 +76,25 @@ export default class ProfilePage extends HTMLElement {
             />
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
           </div>
-          <div class="profile-stats">hello2</div>
+          <div class="profile-stats">
+            <h6>
+              Accountoverzicht
+            </h6>
+            <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.email}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
+            <td class="Meer informatie"><h7>${JSON.stringify(this.spotifyProfile)}</h7>/td>
+          </div>
         </div>
-      </div>
-      <div class="profile-statistics"></div>
-    `;
+      </div>`;
   }
 
   connectedCallback() {
     this.render();
     this.fetchProfile();
+    this.fetchStats();
   }
 
   async fetchProfile() {
@@ -93,6 +114,26 @@ export default class ProfilePage extends HTMLElement {
     this.spotifyProfile = json;
     this.render();
   }
+
+  async fetchStats() {
+    let userId = AuthService.instance.getUserId();
+    if (window.Router.currentMatch[1]) {
+      userId = window.Router.currentMatch[1];
+    }
+
+    const res = await fetch(
+      "https://agile114.science.uva.nl/api/spotify/stats.php?id=" + userId,
+      {
+        headers: AuthService.instance.getFetchHeaders(),
+      }
+    );
+    const json = await res.json();
+
+    this.stats = json;
+    this.render();
+  }
 }
+
+
 
 customElements.define(ProfilePage.pageName, ProfilePage);
