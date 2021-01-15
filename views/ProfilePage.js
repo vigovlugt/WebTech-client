@@ -85,6 +85,7 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7>/td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile}</h7>/td>
           </div>
         </div>
       </div>`;
