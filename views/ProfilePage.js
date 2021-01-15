@@ -138,9 +138,9 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
             <!-- <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td> -->
+            <p id="tmp"></p>
+            <table id="table"></table>
           </div>
-        <p id="tmp"></p>
-        <table id="table"></table>
         <script>
           table = document.getElementById("table");
           document.getElementById("tmp").innerHTML = "test";
