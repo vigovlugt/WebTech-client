@@ -78,32 +78,32 @@ export default class ProfilePage extends HTMLElement {
   stats = {
     medium_tracks: {
       items: [
-        track
+        this.track
       ]
     },
     long_tracks: {
       items: [
-        track
+        this.track
       ]
     },
     short_tracks: {
       items: [
-        track
+        this.track
       ]
     },
     medium_artists: {
       items: [
-        artist
+        this.artist
       ]
     },
     long_artists: {
       items: [
-        artist
+        this.artist
       ]
     },
     short_artists: {
       items: [
-        artist
+        this.artist
       ]
     }
   }
