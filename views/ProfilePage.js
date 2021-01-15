@@ -75,6 +75,9 @@ export default class ProfilePage extends HTMLElement {
     type : ""
   }
 
+
+
+
   stats = {
     medium_tracks: {
       items: [
