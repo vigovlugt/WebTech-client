@@ -143,7 +143,7 @@ export default class ProfilePage extends HTMLElement {
         <table id="table"></table>
         <script>
           table = document.getElementById("table");
-          document.getElementById("tmp").innerHTML = 'test';
+          document.getElementById("tmp").innerHTML = "test";
           for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
             row = table.insertRow(0);
             cell = row.insertCell(0);
