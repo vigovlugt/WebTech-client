@@ -10,6 +10,8 @@ export default class RoomCard extends HTMLElement {
 
     const room = RoomService.instance.getRoom(id);
 
+    const currentTrack = room.playerState.currentTrack;
+
     this.innerHTML = html`<div class="room-card" style="${style}">
       <h3>${room.name}</h3>
       <div class="room-card-profile-images">
@@ -23,6 +25,20 @@ export default class RoomCard extends HTMLElement {
               />`
           )
           .join("")}
+      </div>
+      <div class="room-card-track">
+        <img
+          class="room-card-track-image"
+          src="${currentTrack ? currentTrack.album.imageUrl : ""}"
+        />
+        <div class="room-card-track-info">
+          <a class="room-card-track-name"
+            >${currentTrack ? currentTrack.name : ""}</a
+          >
+          <a class="room-card-track-artist"
+            >${currentTrack ? currentTrack.artist.name : ""}</a
+          >
+        </div>
       </div>
     </div>`;
     this.onclick = () => {

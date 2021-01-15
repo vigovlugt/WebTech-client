@@ -4,10 +4,12 @@
 @import "./room-search.css";
 @import "./room-search-result.css";
 @import "./room-queue-track.css";
+@import "./room-card.css";
 
 .room-overview-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .room-section-header {
@@ -17,34 +19,4 @@
   text-underline-offset: 2px;
 
   margin-bottom: 0.5rem;
-}
-
-/* CARD */
-.room-card {
-  background-color: var(--primary);
-  color: white;
-  width: 250px;
-  height: 150px;
-  padding: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.room-container {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.room-card-profile-images {
-  display: flex;
-  margin-top: 0.5rem;
-}
-
-.room-card-profile-image {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-right: 0.25rem;
-  object-fit: cover;
 }
