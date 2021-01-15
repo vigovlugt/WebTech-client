@@ -139,6 +139,15 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
             <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td>
           </div>
+        <table id="table"></table>
+        <script>
+          table = document.getElementById("table");
+          for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
+            row = table.insertRow(0);
+            cell = row.insertCell(0);
+            cell.innerHTML = this.stats.medium_tracks.items[i].name;
+          }
+        </script>
         </div>
       </div>`;
   }
