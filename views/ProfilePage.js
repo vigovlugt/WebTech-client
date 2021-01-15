@@ -54,6 +54,13 @@ export default class ProfilePage extends HTMLElement {
       },
     ],
     display_name: "",
+    email: "",
+    followers: {
+      total: 3829
+    },
+    id: "",
+    product: "",
+    country: ""
   };
 
   render() {
@@ -73,13 +80,11 @@ export default class ProfilePage extends HTMLElement {
             <h6>
               Accountoverzicht
             </h6>
-            <td class="Gebruikersnaam"><h7>Gebruikersnaam</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
-            <td class="Meer informatie"><h7>Meer informatie</h7>/td>
+            <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.email}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
+            <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
           </div>
         </div>
       </div>`;
@@ -88,6 +93,7 @@ export default class ProfilePage extends HTMLElement {
   connectedCallback() {
     this.render();
     this.fetchProfile();
+    this.fetchStats();
   }
 
   async fetchProfile() {
@@ -107,6 +113,26 @@ export default class ProfilePage extends HTMLElement {
     this.spotifyProfile = json;
     this.render();
   }
+
+  async fetchStats() {
+    let userId = AuthService.instance.getUserId();
+    if (window.Router.currentMatch[1]) {
+      userId = window.Router.currentMatch[1];
+    }
+
+    const res = await fetch(
+      "https://agile114.science.uva.nl/api/spotify/stats.php?id=" + userId,
+      {
+        headers: AuthService.instance.getFetchHeaders(),
+      }
+    );
+    const json = await res.json();
+
+    this.stats = json;
+    this.render();
+  }
 }
+
+
 
 customElements.define(ProfilePage.pageName, ProfilePage);
