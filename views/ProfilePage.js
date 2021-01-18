@@ -46,6 +46,7 @@ export default class ProfilePage extends HTMLElement {
     #stats td th{
       border: 1px solid #ddd;
       padding: 8px;
+      margin: 8px;
     }
 
     body {
