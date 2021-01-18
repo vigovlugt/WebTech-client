@@ -75,13 +75,6 @@ export default class ProfilePage extends HTMLElement {
     type : ""
   }
 
-
-
-
-
-
-
-
   stats = {
     medium_tracks: {
       items: [
@@ -114,7 +107,7 @@ export default class ProfilePage extends HTMLElement {
       ]
     }
   }
-
+  table = ""
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -138,20 +131,18 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
             <!-- <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td> -->
-            <table id="table"></table>
+            <table id="table">${this.table}</table>
           </div>
-        <script>
-          table = document.getElementById("table");
-          document.getElementById("table").innerHTML = "test";
-          for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-            row = table.insertRow(0);
-            cell = row.insertCell(0);
-            cell.innerHTML = this.stats.medium_tracks.items[i].name;
-          }
-        </script>
         </div>
       </div>`;
   }
+
+  setStats() {
+    for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
+      table += "<td>" + this.stats.medium_tracks.items[i].name + "</td>";
+    }
+  }
+
 
   connectedCallback() {
     this.render();
@@ -192,6 +183,7 @@ export default class ProfilePage extends HTMLElement {
     const json = await res.json();
 
     this.stats = json;
+    this.setStats();
     this.render();
   }
 }
