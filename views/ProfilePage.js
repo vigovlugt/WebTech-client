@@ -120,10 +120,23 @@ export default class ProfilePage extends HTMLElement {
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
             <table>
             <tr>
+              <td>Gebruikersnaam</td>
               <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
               <td class="Meer informatie" id="tmp"><h7>${this.spotifyProfile.email}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
               <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
               <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
               <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
             </tr>
             </table>
