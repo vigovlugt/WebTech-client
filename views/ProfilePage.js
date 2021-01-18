@@ -118,16 +118,16 @@ export default class ProfilePage extends HTMLElement {
               width="128"
             />
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-          </div>
-          <div class="profile-stats">
-            <h6>
-              Accountoverzicht
-            </h6>
             <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7></td>
             <td class="Meer informatie" id="tmp"><h7>${this.spotifyProfile.email}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
+          </div>
+          <div class="profile-stats">
+            <h6>
+              Accountoverzicht
+            </h6>
             <table id="table">${this.table}</table>
           </div>
         </div>
