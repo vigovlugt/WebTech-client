@@ -107,7 +107,7 @@ export default class ProfilePage extends HTMLElement {
       ]
     }
   }
-  table = ""
+  table = "test"
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -130,7 +130,7 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
-            <!-- <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td> -->
+            <!-- <td class="Meer informatie"><h7>}</h7>/td> -->
             <table id="table">${this.table}</table>
           </div>
         </div>
