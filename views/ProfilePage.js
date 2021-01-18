@@ -32,6 +32,7 @@ export default class ProfilePage extends HTMLElement {
     .profile-stats {
       background-color: white;
       margin: 0 0;
+      color: black;
       flex: 2.5;
       flex-direction: column;
       display: flex;
@@ -139,7 +140,7 @@ export default class ProfilePage extends HTMLElement {
 
   setStats() {
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table += "<td>" + this.stats.medium_tracks.items[i].name + "</td>";
+      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td></tr>";
     }
   }
 
