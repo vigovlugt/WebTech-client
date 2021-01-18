@@ -139,7 +139,7 @@ export default class ProfilePage extends HTMLElement {
 
   setStats() {
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      table += "<td>" + this.stats.medium_tracks.items[i].name + "</td>";
+      this.table += "<td>" + this.stats.medium_tracks.items[i].name + "</td>";
     }
   }
 
