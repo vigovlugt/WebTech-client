@@ -66,14 +66,11 @@ export default class ProfilePage extends HTMLElement {
 
   track = {
     name : "",
-    popularity : 0,
-    type : ""
+    artists : [this.artist]
   }
 
   artist = {
-    name : "",
-    popularity : 0,
-    type : ""
+    name : ""
   }
 
   stats = {
@@ -140,7 +137,7 @@ export default class ProfilePage extends HTMLElement {
 
   setStats() {
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].name + "</td></tr>";
+      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
     }
   }
 
