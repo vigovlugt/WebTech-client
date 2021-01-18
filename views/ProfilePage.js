@@ -131,7 +131,7 @@ export default class ProfilePage extends HTMLElement {
             <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
             <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
-            <!-- <td class="Meer informatie"><h7>}</h7>/td> -->
+            <td class="Meer informatie"><h7>${JSON.stringify(this.stats)}</h7>/td>
             <table id="table">${this.table}</table>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default class ProfilePage extends HTMLElement {
 
   setStats() {
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td></tr>";
+      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].name + "</td></tr>";
     }
   }
 
