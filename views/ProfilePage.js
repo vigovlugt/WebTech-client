@@ -43,7 +43,7 @@ export default class ProfilePage extends HTMLElement {
       background-color: #f2f2f2;
     }
 
-    #stats td th{
+    #stats tr td th{
       border: 1px solid #ddd;
       padding: 8px;
       margin: 8px;
