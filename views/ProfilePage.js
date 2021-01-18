@@ -39,6 +39,16 @@ export default class ProfilePage extends HTMLElement {
       padding: 2rem;
     }
 
+    #stats tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #stats {
+      border: 1px solid #ddd;
+      padding: 8px;
+      width: 100%;
+    }
+
     body {
       margin: 0;
     }
@@ -145,7 +155,7 @@ export default class ProfilePage extends HTMLElement {
             <h6>
               Accountoverzicht
             </h6>
-            <table id="table">${this.table}</table>
+            <table id="stats">${this.table}</table>
           </div>
         </div>
       </div>`;
