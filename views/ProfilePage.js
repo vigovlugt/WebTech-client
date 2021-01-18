@@ -152,8 +152,9 @@ export default class ProfilePage extends HTMLElement {
   }
 
   setStats() {
+    this.table = "<tr><th>Nr.</th><th>Song Name</th><th>Artist</th></tr>"
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table += "<tr><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
+      this.table += "<tr><td>" + i + "</td><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
     }
   }
 
