@@ -5,7 +5,10 @@ export default class RoomChat extends HTMLElement {
   constructor() {
     super();
 
-    this.innerHTML = html`<h1>HI</h1>`;
+    this.innerHTML = html`<div>
+      <h1>HI</h1>
+      <room-chat-message></room-chat-message>
+    </div>`;
   }
 }
 
