@@ -36,8 +36,8 @@ export default class RoomQueue extends HTMLElement {
               artist="${track.artist.name}"
               userId="${userId}"
               votes="${upvotes.length - downvotes.length}"
-              hasUpvoted="${upvotes.includes(currentUserId)}"
-              hasDownvoted="${downvotes.includes(currentUserId)}"
+              hasUpvoted="${upvotes.indexOf(currentUserId) !== -1}"
+              hasDownvoted="${downvotes.indexOf(currentUserId) !== -1}"
             ></room-queue-track>`
           )
           .join("")}
