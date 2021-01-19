@@ -32,10 +32,21 @@ export default class ProfilePage extends HTMLElement {
     .profile-stats {
       background-color: white;
       margin: 0 0;
+      color: black;
       flex: 2.5;
       flex-direction: column;
       display: flex;
       padding: 2rem;
+    }
+
+    #stats tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #stats tr td th{
+      border: 1px solid #ddd;
+      padding: 8px;
+      margin: 8px;
     }
 
     body {
@@ -63,6 +74,48 @@ export default class ProfilePage extends HTMLElement {
     country: ""
   };
 
+  track = {
+    name : "",
+    artists : [this.artist]
+  }
+
+  artist = {
+    name : ""
+  }
+
+  stats = {
+    medium_tracks: {
+      items: [
+        this.track
+      ]
+    },
+    long_tracks: {
+      items: [
+        this.track
+      ]
+    },
+    short_tracks: {
+      items: [
+        this.track
+      ]
+    },
+    medium_artists: {
+      items: [
+        this.artist
+      ]
+    },
+    long_artists: {
+      items: [
+        this.artist
+      ]
+    },
+    short_artists: {
+      items: [
+        this.artist
+      ]
+    }
+  }
+  table = "test"
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -75,21 +128,46 @@ export default class ProfilePage extends HTMLElement {
               width="128"
             />
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+            <table>
+            <tr>
+              <td>Gebruikersnaam</td>
+              <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
+              <td class="Meer informatie" id="tmp"><h7>${this.spotifyProfile.email}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
+              <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
+              <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
+            </tr>
+            <tr>
+              <td>Gebruikersnaam</td>
+              <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
+            </tr>
+            </table>
           </div>
           <div class="profile-stats">
             <h6>
               Accountoverzicht
             </h6>
-            <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7>/td>
-            <td class="Meer informatie"><h7>${this.spotifyProfile.email}</h7>/td>
-            <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7>/td>
-            <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7>/td>
-            <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7>/td>
-            <td class="Meer informatie"><h7>${JSON.stringify(this.spotifyProfile)}</h7>/td>
+            <table id="stats">${this.table}</table>
           </div>
         </div>
       </div>`;
   }
+
+  setStats() {
+    this.table = "<tr><th>Nr.</th><th>Song Name</th><th>Artist</th></tr>"
+    for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
+      this.table += "<tr><td>" + i + "</td><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
+    }
+  }
+
 
   connectedCallback() {
     this.render();
@@ -130,6 +208,7 @@ export default class ProfilePage extends HTMLElement {
     const json = await res.json();
 
     this.stats = json;
+    this.setStats();
     this.render();
   }
 }
