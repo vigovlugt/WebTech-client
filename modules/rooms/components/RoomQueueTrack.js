@@ -12,6 +12,7 @@ export default class RoomQueueTrack extends HTMLElement {
     const name = this.getAttribute("name");
     const id = this.getAttribute("id");
     const artist = this.getAttribute("artist");
+    const userId = this.getAttribute("userId");
 
     this.innerHTML = html`<div class="queue-track">
       <img class="queue-track-image" src="${imageUrl}" />
@@ -19,6 +20,10 @@ export default class RoomQueueTrack extends HTMLElement {
         <a class="queue-track-name">${name}</a>
         <a class="queue-track-artist">${artist}</a>
       </div>
+      <img
+        class="queue-track-user"
+        src="https://agile114.science.uva.nl/api/users/image.php?id=${userId}"
+      />
     </div>`;
   }
 }

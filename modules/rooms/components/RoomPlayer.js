@@ -48,7 +48,9 @@ export default class RoomPlayer extends HTMLElement {
 
     const playingSvg = isPlaying ? pauseSvg : playSvg;
 
-    const currentTrack = room.playerState.currentTrack;
+    const currentTrack = room.playerState.currentTrack
+      ? room.playerState.currentTrack.track
+      : null;
 
     this.innerHTML = html`<div class="player-bar">
       <div class="player-track">

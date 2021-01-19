@@ -21,11 +21,12 @@ export default class RoomQueue extends HTMLElement {
       <div class="room-queue-tracks">
         ${queue
           .map(
-            (t) => html`<room-queue-track
-              id="${t.id}"
-              name="${t.name}"
-              imageUrl="${t.album.imageUrl}"
-              artist="${t.artist.name}"
+            ({ track, userId }) => html`<room-queue-track
+              id="${track.id}"
+              name="${track.name}"
+              imageUrl="${track.album.imageUrl}"
+              artist="${track.artist.name}"
+              userId="${userId}"
             ></room-queue-track>`
           )
           .join("")}
