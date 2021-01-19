@@ -17,7 +17,6 @@ export default class RoomUsers extends HTMLElement {
       : [];
 
     this.innerHTML = html`<div class="room-users">
-      <h2 class="room-section-header">Users</h2>
       ${users
         .map(
           (u) => html`

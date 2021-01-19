@@ -17,7 +17,6 @@ export default class RoomQueue extends HTMLElement {
       : [];
 
     this.innerHTML = html`<div class="room-queue">
-      <h2 class="room-section-header">Queue</h2>
       <div class="room-queue-tracks">
         ${queue
           .map(

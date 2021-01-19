@@ -5,18 +5,10 @@
 @import "./room-search-result.css";
 @import "./room-queue-track.css";
 @import "./room-card.css";
+@import "./room-tabs.css";
 
 .room-overview-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-.room-section-header {
-  text-decoration: underline;
-  text-decoration-color: var(--primary);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 2px;
-
-  margin-bottom: 0.5rem;
 }

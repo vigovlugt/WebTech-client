@@ -12,7 +12,6 @@ export default class RoomSearch extends HTMLElement {
 
   render() {
     this.innerHTML = html`<div class="room-search">
-      <h2 class="room-section-header">Search</h2>
       <form class="room-search-form">
         <input class="room-search-input" placeholder="Search for tracks..." />
       </form>

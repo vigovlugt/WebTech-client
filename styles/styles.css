@@ -1,4 +1,5 @@
 @import "../modules/rooms/styles/room.css";
+@import "../modules/rooms/styles/chat.css";
 
 * {
   box-sizing: border-box;
