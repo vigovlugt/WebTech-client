@@ -23,3 +23,13 @@ room-tabs {
   flex: 1;
   padding: 1rem;
 }
+
+.room-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.room-tabs-component {
+  height: calc(100% - 37px);
+}

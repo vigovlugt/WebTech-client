@@ -10,4 +10,6 @@ export default class MessageType {
   static ROOM_PAUSE = "ROOM_PAUSE";
   static ROOM_ADD_QUEUE = "ROOM_ADD_QUEUE";
   static ROOM_PLAY_NEXT = "ROOM_PLAY_NEXT";
+  static ROOM_TRACK_UPVOTE = "ROOM_TRACK_UPVOTE";
+  static ROOM_TRACK_DOWNVOTE = "ROOM_TRACK_DOWNVOTE";
 }
