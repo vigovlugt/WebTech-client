@@ -1,0 +1,26 @@
+.chat-room {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-room-output {
+    background-color: var(--bg);
+    border: 0;
+    padding: 0.5rem;
+    font-size: 18px;
+    border-radius: 6px;
+    height: calc(100% - 43px);
+    flex: 4;
+}
+
+.chat-message-input {
+    background-color: var(--bg);
+    border: 1;
+    color: white;
+    padding: 0.5rem;
+    font-size: 18px;
+    width: 100%;
+    border-radius: 6px;
+    border-color: var(--bg-semi-light);
+}

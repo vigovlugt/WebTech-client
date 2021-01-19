@@ -5,9 +5,16 @@ export default class RoomChat extends HTMLElement {
   constructor() {
     super();
 
-    this.innerHTML = html`<div>
-      <h1>HI</h1>
-      <room-chat-message></room-chat-message>
+    this.innerHTML = html`
+    <div class="chat-room">
+      <div class="chat-room-output">
+        
+      </div>
+      <div class="chat-room-input">
+          <form class="room-chat-form">
+            <input class="chat-message-input", placeholder="Send a message"/>
+          </form>
+        </div>
     </div>`;
   }
 }

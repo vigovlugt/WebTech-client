@@ -5,7 +5,9 @@ export default class RoomChatMessage extends HTMLElement {
   constructor() {
     super();
 
-    this.innerHTML = html`<h1>HI from chat message</h1>`;
+    this.innerHTML = html`
+    <div class="room-chat-message">
+    </div>`;
   }
 }
 
