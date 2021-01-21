@@ -1,0 +1,17 @@
+blockquote {
+    border-radius: .4em;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    max-width: 60%;
+}
+
+.messages-me blockquote {
+    background-color: var(--bg-light);
+    margin-right: 1em;
+}
+
+.messages-them blockquote {
+    background-color: var(--bg-light);
+    margin-left: 1em;
+}

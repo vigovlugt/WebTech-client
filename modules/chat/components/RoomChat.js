@@ -8,7 +8,7 @@ export default class RoomChat extends HTMLElement {
     this.innerHTML = html`
     <div class="chat-room">
       <div class="chat-room-output">
-        
+        <room-chat-message></room-chat-message>
       </div>
       <div class="chat-room-input">
           <form class="room-chat-form">

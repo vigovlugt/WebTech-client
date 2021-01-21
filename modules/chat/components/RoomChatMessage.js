@@ -6,7 +6,13 @@ export default class RoomChatMessage extends HTMLElement {
     super();
 
     this.innerHTML = html`
-    <div class="room-chat-message">
+    <div class="messages">
+      <div class="messages-me">
+        <blockquote>Test</blockquote>
+      </div>
+      <div class="messages-them">
+        <blockquote>Hi!</blockquote>
+      </div>
     </div>`;
   }
 }
