@@ -1,22 +1,27 @@
 .chat-room {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
-.chat-room-output {
+.chat-room-messages {
     background-color: var(--bg);
     border: 0;
     padding: 0.5rem;
     font-size: 18px;
     border-radius: 6px;
-    height: calc(100% - 43px);
-    flex: 4;
+    height: calc(100% - 53px);
+    overflow-y: scroll;
+}
+
+.chat-room-messages::-webkit-scrollbar {
+    width: 0;
 }
 
 .chat-message-input {
     background-color: var(--bg);
-    border: 1;
+    border: 0;
     color: white;
     padding: 0.5rem;
     font-size: 18px;
