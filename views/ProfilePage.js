@@ -17,6 +17,10 @@ export default class ProfilePage extends HTMLElement {
       display: block;
     }
 
+    .profile-item {
+      color: white;
+    }
+
     .profile-name {
       font-size: 2rem;
       text-align: center;
@@ -39,14 +43,19 @@ export default class ProfilePage extends HTMLElement {
       padding: 2rem;
     }
 
-    #stats tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    #stats tr td th{
-      border: 1px solid #ddd;
+    #stats tr td {
       padding: 8px;
       margin: 8px;
+      border: 1px solid black;
+    }
+
+    #stats tr th {
+      color: black;
+      border: 1px solid black;
+    }
+
+    #profile-table tr td{
+      padding: 1px 8px;
     }
 
     body {
@@ -76,7 +85,14 @@ export default class ProfilePage extends HTMLElement {
 
   track = {
     name : "",
-    artists : [this.artist]
+    artists : [this.artist],
+    album : {
+      images : [
+        {
+          url : ""
+        }
+      ]
+    }
   }
 
   artist = {
@@ -113,9 +129,22 @@ export default class ProfilePage extends HTMLElement {
       items: [
         this.artist
       ]
+    },
+    history: {
+      items: [
+        this.track
+      ]
     }
   }
-  table = "test"
+  table = {
+    medium_tracks : "",
+    short_tracks : "",
+    long_tracks : "",
+    medium_artists : "",
+    short_artists : "",
+    long_artists : "",
+    history : "",
+  }
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -128,26 +157,26 @@ export default class ProfilePage extends HTMLElement {
               width="128"
             />
             <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-            <table>
+            <table id="profile-table">
             <tr>
               <td>Gebruikersnaam</td>
-              <td class="Gebruikersnaam"><h7>${this.spotifyProfile.id}</h7></td>
+              <h7><td class="profile-item">${this.spotifyProfile.id}</td></h7>
             </tr>
             <tr>
-              <td>Gebruikersnaam</td>
-              <td class="Meer informatie" id="tmp"><h7>${this.spotifyProfile.email}</h7></td>
+              <td>Email</td>
+              <h7><td class="profile-item">${this.spotifyProfile.email}</td></h7>
             </tr>
             <tr>
-              <td>Gebruikersnaam</td>
-              <td class="Meer informatie"><h7>${this.spotifyProfile.followers.total}</h7></td>
+              <td>Volgers</td>
+              <h7><td class="profile-item">${this.spotifyProfile.followers.total}</td></h7>
             </tr>
             <tr>
-              <td>Gebruikersnaam</td>
-              <td class="Meer informatie"><h7>${this.spotifyProfile.product}</h7></td>
+              <td>Type account</td>
+              <h7><td class="profile-item">${this.spotifyProfile.product}</td></h7>
             </tr>
             <tr>
-              <td>Gebruikersnaam</td>
-              <td class="Meer informatie"><h7>${this.spotifyProfile.country}</h7></td>
+              <td>Land</td>
+              <h7><td class="profile-item">${this.spotifyProfile.country}</td></h7>
             </tr>
             </table>
           </div>
@@ -155,17 +184,78 @@ export default class ProfilePage extends HTMLElement {
             <h6>
               Accountoverzicht
             </h6>
-            <table id="stats">${this.table}</table>
+            <h2>Favoriete nummers (Altijd):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.long_tracks}</table>
+            </br></br><h2>Favoriete nummers (6 Maanden):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.medium_tracks}</table>
+            </br></br><h2>Favoriete nummers (4 Weken):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.short_tracks}</table>
+            </br></br><h2>Favoriete artiesten (Altijd):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.long_artists}</table>
+            </br></br><h2>Favoriete artiesten (6 Maanden):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.medium_artists}</table>
+            </br></br><h2>Favoriete artiesten (4 Weken):</h2></br>
+            <table id="stats" cellspacing=0>${this.table.short_artists}</table>
+            </br></br><h2>Laaste afgespeelde nummers:</h2></br>
+            <table id="stats" cellspacing=0>${this.table.history}</table>
           </div>
         </div>
       </div>`;
   }
 
+  test() {
+    alert('testing');
+  }
+
   setStats() {
-    this.table = "<tr><th>Nr.</th><th>Song Name</th><th>Artist</th></tr>"
+    this.table.short_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
+    this.table.medium_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
+    this.table.long_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
+    this.table.short_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
+    this.table.medium_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
+    this.table.long_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
+    this.table.history = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
+
     for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table += "<tr><td>" + i + "</td><td>" + this.stats.medium_tracks.items[i].name + "</td><td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
+      this.table.medium_tracks += "<tr><td>" + (i + 1) + "</td>" +
+      "<td><img src='" + this.stats.medium_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
+      "<td>" + this.stats.medium_tracks.items[i].name + "</td>" +
+      "<td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
     }
+    for (var i = 0; i < this.stats.short_tracks.items.length; i++) {
+      this.table.short_tracks += "<tr><td>" + (i + 1) + "</td>" +
+                                 "<td><img src='" + this.stats.short_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
+                                 "<td>" + this.stats.short_tracks.items[i].name + "</td>" +
+                                 "<td>" + this.stats.short_tracks.items[i].artists[0].name + "</td></tr>";
+    }
+    for (var i = 0; i < this.stats.long_tracks.items.length; i++) {
+      this.table.long_tracks += "<tr><td>" + (i + 1) + "</td>" +
+                                "<td><img src='" + this.stats.long_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
+                                "<td>" + this.stats.long_tracks.items[i].name + "</td>" +
+                                "<td>" + this.stats.long_tracks.items[i].artists[0].name + "</td></tr>";
+    }
+    for (var i = 0; i < this.stats.medium_artists.items.length; i++) {
+      this.table.medium_artists += "<tr><td>" + (i + 1) + "</td>" +
+                                   "<td><img src='" + this.stats.medium_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
+                                   "<td>" + this.stats.medium_artists.items[i].name + "</td></tr>";
+    }
+    for (var i = 0; i < this.stats.short_artists.items.length; i++) {
+      this.table.short_artists += "<tr><td>" + (i + 1) + "</td>" +
+                                  "<td><img src='" + this.stats.short_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
+                                  "<td>" + this.stats.short_artists.items[i].name + "</td></tr>";
+    }
+    for (var i = 0; i < this.stats.long_artists.items.length; i++) {
+      this.table.long_artists += "<tr><td>" + (i + 1) + "</td>" +
+                                 "<td><img src='" + this.stats.long_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
+                                 "<td>" + this.stats.long_artists.items[i].name + "</td></tr>";
+    }
+    // for (var i = 0; i < this.stats.history.items.length; i++) {
+    //   this.table.history += "<tr><td>" + (i + 1) + "</td>" +
+    //                         "<td><img src='" + this.stats.history.items[i].track.album.images[0].url + "' width='50' height='50' /></td>" +
+    //                         "<td>" + this.stats.history.items[i].track.name + "</td>" +
+    //                         "<td>" + this.stats.history.items[i].track.artists[0].name + "</td></tr>";
+    // }
+
   }
 
 
@@ -174,6 +264,16 @@ export default class ProfilePage extends HTMLElement {
     this.fetchProfile();
     this.fetchStats();
   }
+
+  async logProfileWatch() {
+    const http = new XMLHttpRequest()
+
+    http.open("GET", "https://api.lyrics.ovh/v1/toto/africa")
+    http.send()
+
+    http.onload = () => console.log(http.responseText)
+  }
+
 
   async fetchProfile() {
     let userId = AuthService.instance.getUserId();
