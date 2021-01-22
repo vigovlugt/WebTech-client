@@ -72,5 +72,9 @@ export default class RoomService extends EventTarget {
   deleteRoom() {
     SyncService.instance.sendMessage(MessageType.ROOM_DELETE);
   }
+
+  setRoomColor(color) {
+    SyncService.instance.sendMessage(MessageType.ROOM_SET_COLOR, { color });
+  }
 }
 window.RoomService = RoomService;

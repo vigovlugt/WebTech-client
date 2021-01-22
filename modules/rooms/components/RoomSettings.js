@@ -13,16 +13,30 @@ export default class RoomSettings extends HTMLElement {
   }
 
   render() {
-    // const room = RoomService.instance.room;
+    const room = RoomService.instance.room;
 
     // const currentUserId = AuthService.instance.getUserId();
 
     this.innerHTML = html`<div class="room-settings">
+      <label>Room color</label>
+      <div class="room-settings-color-container">
+        <input type="color" class="room-settings-color" value="${room.color}" />
+        <button class="room-settings-color-apply">Apply</button>
+      </div>
+
       <button class="room-settings-delete">Delete room</button>
     </div>`;
 
     this.querySelector(".room-settings-delete").addEventListener("click", () =>
       RoomService.instance.deleteRoom()
+    );
+
+    this.querySelector(".room-settings-color-apply").addEventListener(
+      "click",
+      () => {
+        const value = this.querySelector(".room-settings-color").value;
+        RoomService.instance.setRoomColor(value);
+      }
     );
   }
 

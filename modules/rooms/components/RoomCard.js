@@ -14,7 +14,10 @@ export default class RoomCard extends HTMLElement {
       ? room.playerState.currentTrack.track
       : null;
 
-    this.innerHTML = html`<div class="room-card" style="${style}">
+    this.innerHTML = html`<div
+      class="room-card"
+      style="${style};background-color:${room.color};"
+    >
       <h3>${room.name}</h3>
       <div class="room-card-profile-images">
         ${room.users
