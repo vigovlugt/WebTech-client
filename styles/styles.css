@@ -1,4 +1,5 @@
 @import "../modules/rooms/styles/room.css";
+@import "../modules/chat/styles/chat.css";
 
 * {
   box-sizing: border-box;
@@ -10,6 +11,7 @@
   --bg-semi-light: #1b1b1b;
   --primary: #1db954;
   --border-grey: #4e4e4e;
+  --danger: #cd1a2b;
 }
 
 body {

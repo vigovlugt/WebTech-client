@@ -1,8 +1,9 @@
 import MessageType from "../../../constants/MessageType.js";
+import AuthService from "../../../services/AuthService.js";
 import RoomService from "../../../services/RoomService.js";
 import { html } from "../../../utils/utils.js";
 
-export default class RoomUsers extends HTMLElement {
+export default class RoomSettings extends HTMLElement {
   eventListener = null;
 
   constructor() {
@@ -12,27 +13,17 @@ export default class RoomUsers extends HTMLElement {
   }
 
   render() {
-    const users = RoomService.instance.room
-      ? RoomService.instance.room.users
-      : [];
+    // const room = RoomService.instance.room;
 
-    this.innerHTML = html`<div class="room-users">
-      ${users
-        .map(
-          (u) => html`
-            <div class="room-user">
-              <img
-                class="room-user-image"
-                src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
-              />
-              <div>
-                <h4>${u.name}</h4>
-              </div>
-            </div>
-          `
-        )
-        .join("")}
+    // const currentUserId = AuthService.instance.getUserId();
+
+    this.innerHTML = html`<div class="room-settings">
+      <button class="room-settings-delete">Delete room</button>
     </div>`;
+
+    this.querySelector(".room-settings-delete").addEventListener("click", () =>
+      RoomService.instance.deleteRoom()
+    );
   }
 
   onRoomSync() {
@@ -56,4 +47,4 @@ export default class RoomUsers extends HTMLElement {
   }
 }
 
-window.customElements.define("room-users", RoomUsers);
+window.customElements.define("room-settings", RoomSettings);

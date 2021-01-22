@@ -42,12 +42,25 @@ export default class RoomService extends EventTarget {
     SyncService.instance.sendMessage(MessageType.ROOM_ADD_QUEUE, { id });
   }
 
+  upvoteTrack(id) {
+    SyncService.instance.sendMessage(MessageType.ROOM_TRACK_UPVOTE, { id });
+  }
+
+  downvoteTrack(id) {
+    SyncService.instance.sendMessage(MessageType.ROOM_TRACK_DOWNVOTE, { id });
+  }
+
   onRoomListSync(rooms) {
     this.rooms = rooms;
     this.dispatchEvent(new Event(MessageType.ROOM_LIST_SYNC));
   }
 
   onSyncRoom(room) {
+    if (room === null) {
+      window.Router.goto("/");
+      return;
+    }
+
     this.room = room;
     this.dispatchEvent(new Event(MessageType.ROOM_SYNC));
   }
@@ -55,4 +68,9 @@ export default class RoomService extends EventTarget {
   createRoom(name) {
     SyncService.instance.sendMessage(MessageType.ROOM_CREATE, { name });
   }
+
+  deleteRoom() {
+    SyncService.instance.sendMessage(MessageType.ROOM_DELETE);
+  }
 }
+window.RoomService = RoomService;

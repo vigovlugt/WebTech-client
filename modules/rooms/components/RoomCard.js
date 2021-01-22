@@ -10,7 +10,9 @@ export default class RoomCard extends HTMLElement {
 
     const room = RoomService.instance.getRoom(id);
 
-    const currentTrack = room.playerState.currentTrack;
+    const currentTrack = room.playerState.currentTrack
+      ? room.playerState.currentTrack.track
+      : null;
 
     this.innerHTML = html`<div class="room-card" style="${style}">
       <h3>${room.name}</h3>

@@ -1,12 +1,7 @@
-room-users {
-  flex: 1;
-  padding: 1rem;
-}
-
 .room-user {
   display: flex;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   background-color: var(--bg);
   padding: 0.5rem;
   border-radius: 10px;

@@ -37,15 +37,57 @@ export default class RoomPage extends HTMLElement {
     const roomId = window.Router.currentMatch[1];
     const room = RoomService.instance.getRoom(roomId);
 
+    const userId = AuthService.instance.getUserId();
+
+    const isOwner = room.ownerId === userId;
+
+    const leftTabs = [
+      {
+        name: "Search",
+        component: "room-search",
+      },
+    ];
+
+    if (isOwner) {
+      leftTabs.push({
+        name: "Settings",
+        component: "room-settings",
+      });
+    }
+
     this.innerHTML = html`
       <div class="room-page">
         <h2 class="room-name">
           <div class="container">${room.name}</div>
         </h2>
         <div class="room-page-main">
-          <room-search></room-search>
-          <room-queue></room-queue>
-          <room-users></room-users>
+          <room-tabs
+            tabs=${`'
+            ${JSON.stringify(leftTabs)}'`}
+          ></room-tabs>
+          <room-tabs
+            flex="2"
+            tabs=${`'
+            ${JSON.stringify([
+              {
+                name: "Queue",
+                component: "room-queue",
+              },
+            ])}'`}
+          ></room-tabs>
+          <room-tabs
+            tabs=${`'
+            ${JSON.stringify([
+              {
+                name: "Users",
+                component: "room-users",
+              },
+              {
+                name: "Chat",
+                component: "room-chat",
+              },
+            ])}'`}
+          ></room-tabs>
         </div>
         <room-player></room-player>
       </div>

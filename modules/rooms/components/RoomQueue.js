@@ -1,4 +1,5 @@
 import MessageType from "../../../constants/MessageType.js";
+import AuthService from "../../../services/AuthService.js";
 import RoomService from "../../../services/RoomService.js";
 import { html } from "../../../utils/utils.js";
 
@@ -16,16 +17,27 @@ export default class RoomQueue extends HTMLElement {
       ? RoomService.instance.room.playerState.queue
       : [];
 
+    const currentUserId = AuthService.instance.getUserId();
+
     this.innerHTML = html`<div class="room-queue">
-      <h2 class="room-section-header">Queue</h2>
       <div class="room-queue-tracks">
         ${queue
           .map(
-            (t) => html`<room-queue-track
-              id="${t.id}"
-              name="${t.name}"
-              imageUrl="${t.album.imageUrl}"
-              artist="${t.artist.name}"
+            ({
+              track,
+              userId,
+              upvotes,
+              downvotes,
+              id,
+            }) => html`<room-queue-track
+              id="${id}"
+              name="${track.name}"
+              imageUrl="${track.album.imageUrl}"
+              artist="${track.artist.name}"
+              userId="${userId}"
+              votes="${upvotes.length - downvotes.length}"
+              hasUpvoted="${upvotes.indexOf(currentUserId) !== -1}"
+              hasDownvoted="${downvotes.indexOf(currentUserId) !== -1}"
             ></room-queue-track>`
           )
           .join("")}

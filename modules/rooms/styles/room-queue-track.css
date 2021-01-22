@@ -1,5 +1,6 @@
 .queue-track {
   display: flex;
+  align-items: center;
   width: 100%;
   margin-bottom: 0.5rem;
   background-color: var(--bg);
@@ -31,4 +32,35 @@
   line-height: 16px;
   letter-spacing: 0.015em;
   color: #b3b3b3;
+}
+
+.queue-track-user {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+.queue-track-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.queue-track-votes {
+  font-size: 1.5rem;
+  margin: 0 0.25rem;
+}
+
+.queue-track-downvote,
+.queue-track-upvote {
+  color: #616161;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.queue-track-vote-active {
+  color: white;
 }
