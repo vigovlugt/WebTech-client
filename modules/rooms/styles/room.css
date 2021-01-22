@@ -6,6 +6,7 @@
 @import "./room-queue-track.css";
 @import "./room-card.css";
 @import "./room-tabs.css";
+@import "./room-settings.css";
 
 .room-overview-header {
   display: flex;

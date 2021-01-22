@@ -37,6 +37,24 @@ export default class RoomPage extends HTMLElement {
     const roomId = window.Router.currentMatch[1];
     const room = RoomService.instance.getRoom(roomId);
 
+    const userId = AuthService.instance.getUserId();
+
+    const isOwner = room.ownerId === userId;
+
+    const leftTabs = [
+      {
+        name: "Search",
+        component: "room-search",
+      },
+    ];
+
+    if (isOwner) {
+      leftTabs.push({
+        name: "Settings",
+        component: "room-settings",
+      });
+    }
+
     this.innerHTML = html`
       <div class="room-page">
         <h2 class="room-name">
@@ -45,12 +63,7 @@ export default class RoomPage extends HTMLElement {
         <div class="room-page-main">
           <room-tabs
             tabs=${`'
-            ${JSON.stringify([
-              {
-                name: "Search",
-                component: "room-search",
-              },
-            ])}'`}
+            ${JSON.stringify(leftTabs)}'`}
           ></room-tabs>
           <room-tabs
             flex="2"

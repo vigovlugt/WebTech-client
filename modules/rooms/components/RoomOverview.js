@@ -64,7 +64,12 @@ export default class RoomOverview extends HTMLElement {
   }
 
   onCreateRoom() {
-    RoomService.instance.createRoom(prompt("Room name?"));
+    const name = prompt("Room name");
+    if (name === null) {
+      return;
+    }
+
+    RoomService.instance.createRoom(name);
   }
 }
 

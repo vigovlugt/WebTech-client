@@ -56,6 +56,11 @@ export default class RoomService extends EventTarget {
   }
 
   onSyncRoom(room) {
+    if (room === null) {
+      window.Router.goto("/");
+      return;
+    }
+
     this.room = room;
     this.dispatchEvent(new Event(MessageType.ROOM_SYNC));
   }
@@ -63,4 +68,9 @@ export default class RoomService extends EventTarget {
   createRoom(name) {
     SyncService.instance.sendMessage(MessageType.ROOM_CREATE, { name });
   }
+
+  deleteRoom() {
+    SyncService.instance.sendMessage(MessageType.ROOM_DELETE);
+  }
 }
+window.RoomService = RoomService;

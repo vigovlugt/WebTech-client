@@ -7,3 +7,4 @@ import "./components/RoomUsers.js";
 import "./components/RoomSearchResult.js";
 import "./components/RoomQueueTrack.js";
 import "./components/RoomTabs.js";
+import "./components/RoomSettings.js";
