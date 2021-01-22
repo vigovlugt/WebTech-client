@@ -76,5 +76,9 @@ export default class RoomService extends EventTarget {
   setRoomColor(color) {
     SyncService.instance.sendMessage(MessageType.ROOM_SET_COLOR, { color });
   }
+
+  sendChatMessage(content) {
+    SyncService.instance.sendMessage(MessageType.ROOM_CHAT_MESSAGE, { content });
+  }
 }
 window.RoomService = RoomService;

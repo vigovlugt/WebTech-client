@@ -1,39 +1,46 @@
-.messages {
-    height: 100%;
+.chat-message-row {
     display: flex;
-    flex-direction: row;
+    justify-content: left;
+    align-content: flex-end;
+    margin-bottom: .5rem;
 }
 
-.messages-me-container {
-    flex: 1;
-    order: 2;
+.chat-message-user-image {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: .5rem;
+    margin-top: auto;
 }
 
-.messages-them-container {
-    flex: 1;
-    order: 1;
-}
-
-.messages-me-content {
-    background-color: var(--primary);
-    border: 1;
-    color: white;
-    padding: 0.5rem;
-    width: auto;
-    border-radius: 6px;
-    text-align: right;
-}
-
-.messages-them-content {
+.chat-message-container {
     background-color: var(--bg-light);
-    border: 1;
     color: white;
     padding: 0.5rem;
-    width: auto;
     border-radius: 6px;
-    text-align: left;
+    border-bottom-left-radius: 0;
+    max-width: 50%;
+    word-break: break-all;
 }
 
-h1 {
-    font-size: 18px;
+.chat-message-content {
+    margin:0;
+}
+
+
+/* Own chat message */
+.chat-message-self {
+    justify-content: right;
+    flex-direction: row-reverse;
+}
+
+.chat-message-self .chat-message-user-image {
+    margin-right:0;
+    margin-left:.5rem;
+}
+.chat-message-self .chat-message-container {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 0;
+    background-color: var(--primary);
 }
