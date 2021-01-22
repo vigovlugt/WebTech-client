@@ -9,12 +9,12 @@ export default class RoomChatMessage extends HTMLElement {
     <div class="messages">
       <div class="messages-me-container">
         <div class="messages-me-layout">
-          <h1>Text:me</h1>
+          <h1>Text</h1>
         </div>
       </div>
       <div class="messages-them-container">
         <div class="messages-them-layout">
-          <h1>Text:them</h1>
+          <h1>Text</h1>
         </div>
       </div>
     </div>`;
