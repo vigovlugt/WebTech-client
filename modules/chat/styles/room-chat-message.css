@@ -14,7 +14,7 @@
     order: 1;
 }
 
-.messages-me-layout {
+.messages-me-content {
     background-color: var(--primary);
     border: 1;
     color: white;
@@ -24,7 +24,7 @@
     text-align: right;
 }
 
-.messages-them-layout {
+.messages-them-content {
     background-color: var(--bg-light);
     border: 1;
     color: white;

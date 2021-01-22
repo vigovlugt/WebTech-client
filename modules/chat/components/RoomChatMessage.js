@@ -8,12 +8,12 @@ export default class RoomChatMessage extends HTMLElement {
     this.innerHTML = html`
     <div class="messages">
       <div class="messages-me-container">
-        <div class="messages-me-layout">
+        <div class="messages-me-content">
           <h1>Text</h1>
         </div>
       </div>
       <div class="messages-them-container">
-        <div class="messages-them-layout">
+        <div class="messages-them-content">
           <h1>Text</h1>
         </div>
       </div>
