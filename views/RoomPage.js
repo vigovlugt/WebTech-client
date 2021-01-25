@@ -139,14 +139,19 @@ export default class RoomPage extends HTMLElement {
   }
 
   connectedCallback() {
-    const roomId = window.Router.currentMatch[1];
+    const roomId = +window.Router.currentMatch[1];
+    const isInRoom =
+      RoomService.instance.room !== null &&
+      roomId === RoomService.instance.room.id;
 
-    if (SyncService.instance.isAuthenticated) {
-      RoomService.instance.joinRoom(roomId);
-    } else {
-      SyncService.instance.addEventListener(MessageType.AUTHENTICATED, () => {
+    if (!isInRoom) {
+      if (SyncService.instance.isAuthenticated) {
         RoomService.instance.joinRoom(roomId);
-      });
+      } else {
+        SyncService.instance.addEventListener(MessageType.AUTHENTICATED, () => {
+          RoomService.instance.joinRoom(roomId);
+        });
+      }
     }
 
     RoomService.instance.addEventListener(

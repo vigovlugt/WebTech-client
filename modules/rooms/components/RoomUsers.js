@@ -18,7 +18,7 @@ export default class RoomUsers extends HTMLElement {
       ${users
         .map(
           (u) => html`
-            <div class="room-user">
+            <div class="room-user" data-id="${u.id}">
               <img
                 class="room-user-image"
                 src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
@@ -31,6 +31,12 @@ export default class RoomUsers extends HTMLElement {
         )
         .join("")}
     </div>`;
+
+    [...document.querySelectorAll(".room-user")].forEach((el) => {
+      el.addEventListener("click", () => {
+        window.Router.goto(`/profile/${el.dataset.id}`);
+      });
+    });
   }
 
   onRoomSync() {
