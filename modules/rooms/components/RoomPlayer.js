@@ -31,8 +31,6 @@ const nextSvg = html`<svg
 </svg>`;
 
 export default class RoomPlayer extends HTMLElement {
-  eventListener = null;
-
   constructor() {
     super();
 
@@ -73,7 +71,7 @@ export default class RoomPlayer extends HTMLElement {
         <button class="player-next">${nextSvg}</button>
       </div>
 
-      <div class="player-settings">settings</div>
+      <div class="player-settings"></div>
     </div>`;
 
     this.setEventListeners(isPlaying);
@@ -100,7 +98,7 @@ export default class RoomPlayer extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    this.eventListener = RoomService.instance.addEventListener(
+    RoomService.instance.addEventListener(
       MessageType.ROOM_SYNC,
       this.onRoomSync
     );

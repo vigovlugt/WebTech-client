@@ -12,8 +12,6 @@ const roomCard = (room) =>
   ></room-card>`;
 
 export default class RoomOverview extends HTMLElement {
-  eventListener = null;
-
   constructor() {
     super();
 
@@ -54,7 +52,7 @@ export default class RoomOverview extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    this.eventListener = RoomService.instance.addEventListener(
+    RoomService.instance.addEventListener(
       MessageType.ROOM_LIST_SYNC,
       this.onRoomListSync
     );

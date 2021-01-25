@@ -11,18 +11,6 @@ export default class IndexPage extends HTMLElement {
   render() {
     this.innerHTML = html`
       <div class="container">
-        <h2>Users</h2>
-        ${this.users
-          .map(
-            (u) =>
-              html`<user-badge
-                name="${u.name}"
-                id="${u.id}"
-                online="${u.online}"
-                class="mr-4"
-              ></user-badge>`
-          )
-          .join("")}
         <room-overview style="margin-top:1rem;" />
       </div>
     `;

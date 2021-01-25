@@ -2,7 +2,7 @@ import MessageType from "../constants/MessageType.js";
 import AuthService from "./AuthService.js";
 import RoomService from "./RoomService.js";
 
-export default class SyncService {
+export default class SyncService extends EventTarget {
   /**
    * @type SyncService
    */
@@ -13,7 +13,11 @@ export default class SyncService {
    */
   socket = null;
 
+  isAuthenticated = false;
+
   constructor() {
+    super();
+
     SyncService.instance = this;
   }
 
@@ -49,6 +53,9 @@ export default class SyncService {
   }
 
   onAuthenticated() {
+    this.isAuthenticated = true;
+    this.dispatchEvent(new Event(MessageType.AUTHENTICATED));
+
     console.log("WEBSOCKET AUTHENTICATED");
   }
 

@@ -1,7 +1,3 @@
-const route404 = {
-  page: null,
-};
-
 export default class Router {
   routes = [];
 
@@ -10,14 +6,14 @@ export default class Router {
   currentPage = null;
 
   constructor(routes, element, styleElement) {
+    window.Router = this;
+
     this.routes = routes;
     this.element = element;
     this.styleElement = styleElement;
 
     this.onRouteChange();
     window.addEventListener("popstate", () => this.onRouteChange());
-
-    window.Router = this;
   }
 
   onRouteChange() {

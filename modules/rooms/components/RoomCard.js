@@ -47,7 +47,6 @@ export default class RoomCard extends HTMLElement {
       </div>
     </div>`;
     this.onclick = () => {
-      RoomService.instance.joinRoom(id);
       window.Router.goto("/rooms/" + id);
     };
   }

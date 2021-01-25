@@ -1,5 +1,7 @@
+import MessageType from "../constants/MessageType.js";
 import AuthService from "../services/AuthService.js";
 import RoomService from "../services/RoomService.js";
+import SyncService from "../services/SyncService.js";
 import { html } from "../utils/utils.js";
 
 export default class RoomPage extends HTMLElement {
@@ -12,11 +14,26 @@ export default class RoomPage extends HTMLElement {
       height: calc(100vh - 84px);
     }
 
-    .room-name {
+    .room-header-container {
       background-color: var(--bg-semi-light);
-      padding: 1rem;
-      padding-top: 0.5rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .room-header-left {
+      width: 20%;
+    }
+
+    .room-header-right {
+      width: 20%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .room-share-btn {
+      font-size: 1rem;
+      padding: 0.4rem;
     }
 
     .app {
@@ -29,13 +46,23 @@ export default class RoomPage extends HTMLElement {
 
     .room-page-main {
       display: flex;
-      height: calc(100vh - 226px);
+      height: calc(100vh - 237px);
     }
   </style>`;
+
+  constructor() {
+    super();
+
+    this.onRoomSync = this.onRoomSync.bind(this);
+  }
 
   render() {
     const roomId = window.Router.currentMatch[1];
     const room = RoomService.instance.getRoom(roomId);
+    if (room == null) {
+      this.innerHTML = "";
+      return;
+    }
 
     const userId = AuthService.instance.getUserId();
 
@@ -57,9 +84,16 @@ export default class RoomPage extends HTMLElement {
 
     this.innerHTML = html`
       <div class="room-page">
-        <h2 class="room-name">
-          <div class="container">${room.name}</div>
-        </h2>
+        <div class="room-header-container">
+          <div class="room-header-left"></div>
+          <div class="room-header-middle">
+            <h2 class="room-name">${room.name}</h2>
+          </div>
+          <div class="room-header-right">
+            <button class="room-share-btn">Share</button>
+          </div>
+        </div>
+
         <div class="room-page-main">
           <room-tabs
             tabs=${`'
@@ -92,10 +126,50 @@ export default class RoomPage extends HTMLElement {
         <room-player></room-player>
       </div>
     `;
+
+    const shareBtn = this.querySelector(".room-share-btn");
+    shareBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(window.location.href);
+      shareBtn.innerHTML = "Share link copied to clipboard.";
+
+      setTimeout(() => {
+        shareBtn.innerHTML = "Share";
+      }, 3000);
+    });
   }
 
   connectedCallback() {
+    const roomId = window.Router.currentMatch[1];
+
+    if (SyncService.instance.isAuthenticated) {
+      RoomService.instance.joinRoom(roomId);
+    } else {
+      SyncService.instance.addEventListener(MessageType.AUTHENTICATED, () => {
+        RoomService.instance.joinRoom(roomId);
+      });
+    }
+
+    RoomService.instance.addEventListener(
+      MessageType.ROOM_SYNC,
+      this.onRoomSync
+    );
+
     this.render();
+  }
+
+  onRoomSync() {
+    this.render();
+    RoomService.instance.removeEventListener(
+      MessageType.ROOM_SYNC,
+      this.onRoomSync
+    );
+  }
+
+  disconnectedCallback() {
+    RoomService.instance.removeEventListener(
+      MessageType.ROOM_SYNC,
+      this.onRoomSync
+    );
   }
 }
 

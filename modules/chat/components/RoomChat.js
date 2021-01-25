@@ -3,8 +3,6 @@ import { html } from "../../../utils/utils.js";
 import MessageType from "../../../constants/MessageType.js";
 
 export default class RoomChat extends HTMLElement {
-  eventListener = null;
-
   constructor() {
     super();
 
@@ -58,7 +56,7 @@ export default class RoomChat extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    this.eventListener = RoomService.instance.addEventListener(
+    RoomService.instance.addEventListener(
       MessageType.ROOM_SYNC,
       this.onRoomSync
     );

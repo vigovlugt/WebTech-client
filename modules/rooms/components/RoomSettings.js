@@ -4,8 +4,6 @@ import RoomService from "../../../services/RoomService.js";
 import { html } from "../../../utils/utils.js";
 
 export default class RoomSettings extends HTMLElement {
-  eventListener = null;
-
   constructor() {
     super();
 
@@ -47,7 +45,7 @@ export default class RoomSettings extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    this.eventListener = RoomService.instance.addEventListener(
+    RoomService.instance.addEventListener(
       MessageType.ROOM_SYNC,
       this.onRoomSync
     );
