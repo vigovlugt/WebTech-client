@@ -5,7 +5,6 @@ import { html } from "../../../utils/utils.js";
 
 const roomCard = (room) =>
   html`<room-card
-    style="margin-right:1rem;margin-bottom:1rem;"
     id="${room.id}"
     name="${room.name}"
     ownerId="${room.ownerId}"
@@ -36,7 +35,7 @@ export default class RoomOverview extends HTMLElement {
       <div class="room-container">
       ${myRooms.map(roomCard).join("")}
       </div>
-      <div class="room-overview-header">
+      <div class="room-overview-header" style="margin-top:1rem;">
         <h2>Public Rooms</h1>
       </div>
       <div class="room-container">

@@ -4,6 +4,12 @@ import RoomService from "../services/RoomService.js";
 import SyncService from "../services/SyncService.js";
 import { html } from "../utils/utils.js";
 
+const roomTabs = (tabs, flex) => html`<room-tabs
+  flex="${flex}"
+  tabs=${`'
+${JSON.stringify(tabs)}'`}
+></room-tabs>`;
+
 export default class RoomPage extends HTMLElement {
   static pageName = "room-page";
 
@@ -68,19 +74,44 @@ export default class RoomPage extends HTMLElement {
 
     const isOwner = room.ownerId === userId;
 
-    const leftTabs = [
-      {
-        name: "Search",
-        component: "room-search",
-      },
+    const tabs = [
+      [
+        {
+          name: "Search",
+          component: "room-search",
+        },
+      ],
+      [
+        {
+          name: "Queue",
+          component: "room-queue",
+        },
+      ],
+      [
+        {
+          name: "Users",
+          component: "room-users",
+        },
+        {
+          name: "Chat",
+          component: "room-chat",
+        },
+      ],
     ];
 
     if (isOwner) {
-      leftTabs.push({
+      tabs[0].push({
         name: "Settings",
         component: "room-settings",
       });
     }
+
+    console.log(
+      roomTabs(
+        tabs.reduce((list, tab) => [...list, tab], []),
+        1
+      )
+    );
 
     this.innerHTML = html`
       <div class="room-page">
@@ -95,33 +126,14 @@ export default class RoomPage extends HTMLElement {
         </div>
 
         <div class="room-page-main">
-          <room-tabs
-            tabs=${`'
-            ${JSON.stringify(leftTabs)}'`}
-          ></room-tabs>
-          <room-tabs
-            flex="2"
-            tabs=${`'
-            ${JSON.stringify([
-              {
-                name: "Queue",
-                component: "room-queue",
-              },
-            ])}'`}
-          ></room-tabs>
-          <room-tabs
-            tabs=${`'
-            ${JSON.stringify([
-              {
-                name: "Users",
-                component: "room-users",
-              },
-              {
-                name: "Chat",
-                component: "room-chat",
-              },
-            ])}'`}
-          ></room-tabs>
+          ${window.innerWidth > 1000
+            ? tabs
+                .map((tabList, i) => roomTabs(tabList, i === 1 ? 2 : 1))
+                .join("")
+            : roomTabs(
+                tabs.reduce((list, tabList) => [...list, ...tabList], []),
+                1
+              )}
         </div>
         <room-player></room-player>
       </div>

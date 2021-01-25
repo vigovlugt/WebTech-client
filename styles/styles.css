@@ -101,4 +101,5 @@ button {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 1rem;
 }

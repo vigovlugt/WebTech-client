@@ -6,7 +6,6 @@ export default class RoomCard extends HTMLElement {
     super();
 
     const id = this.getAttribute("id");
-    const style = this.getAttribute("style");
 
     const room = RoomService.instance.getRoom(id);
 
@@ -16,7 +15,7 @@ export default class RoomCard extends HTMLElement {
 
     this.innerHTML = html`<div
       class="room-card"
-      style="${style};background-color:${room.color};"
+      style="background-color:${room.color};"
     >
       <h3>${room.name}</h3>
       <div class="room-card-profile-images">

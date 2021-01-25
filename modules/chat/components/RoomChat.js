@@ -7,35 +7,43 @@ export default class RoomChat extends HTMLElement {
     super();
 
     this.onRoomSync = this.onRoomSync.bind(this);
+
+    this.innerHTML = html`<div class="chat-room">
+      <div class="chat-room-messages"></div>
+      <div class="chat-room-input">
+        <form class="room-chat-form">
+          <input class="chat-message-input" placeholder="Send a message" />
+        </form>
+      </div>
+    </div>`;
   }
 
   render() {
     const messages = RoomService.instance.room
       ? RoomService.instance.room.chat
       : [];
-    console.log(messages);
-    this.innerHTML = html` <div class="chat-room">
-      <div class="chat-room-messages">
-        ${messages
-          .map(
-            (m) =>
-              html`<room-chat-message
-                userId="${m.userId}"
-                content="${m.content}"
-              ></room-chat-message>`
-          )
-          .join("")}
-      </div>
-      <div class="chat-room-input">
-        <form class="room-chat-form">
-          <input class="chat-message-input" , placeholder="Send a message" />
-        </form>
-      </div>
-    </div>`;
 
     const chatRoomMessages = this.querySelector(".chat-room-messages");
 
+    chatRoomMessages.innerHTML = messages
+      .map(
+        (m) =>
+          html`<room-chat-message
+            userId="${m.userId}"
+            content="${m.content}"
+          ></room-chat-message>`
+      )
+      .join("");
+
     chatRoomMessages.scrollTop = chatRoomMessages.scrollHeight;
+  }
+
+  onRoomSync() {
+    this.render();
+  }
+
+  connectedCallback() {
+    this.render();
 
     this.querySelector(".room-chat-form").addEventListener(
       "submit",
@@ -47,14 +55,6 @@ export default class RoomChat extends HTMLElement {
         RoomService.instance.sendChatMessage(message);
       }
     );
-  }
-
-  onRoomSync() {
-    this.render();
-  }
-
-  connectedCallback() {
-    this.render();
 
     RoomService.instance.addEventListener(
       MessageType.ROOM_SYNC,

@@ -13,8 +13,6 @@ export default class RoomSettings extends HTMLElement {
   render() {
     const room = RoomService.instance.room;
 
-    // const currentUserId = AuthService.instance.getUserId();
-
     this.innerHTML = html`<div class="room-settings">
       <label>Room color</label>
       <div class="room-settings-color-container">
@@ -22,6 +20,7 @@ export default class RoomSettings extends HTMLElement {
         <button class="room-settings-color-apply">Apply</button>
       </div>
 
+      <label style="margin-top: 1rem;">Room actions</label>
       <button class="room-settings-delete">Delete room</button>
     </div>`;
 
@@ -44,18 +43,6 @@ export default class RoomSettings extends HTMLElement {
 
   connectedCallback() {
     this.render();
-
-    RoomService.instance.addEventListener(
-      MessageType.ROOM_SYNC,
-      this.onRoomSync
-    );
-  }
-
-  disconnectedCallback() {
-    RoomService.instance.removeEventListener(
-      MessageType.ROOM_SYNC,
-      this.onRoomSync
-    );
   }
 }
 

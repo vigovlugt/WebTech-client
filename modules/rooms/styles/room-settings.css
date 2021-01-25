@@ -1,6 +1,6 @@
 .room-settings-delete {
   background-color: var(--danger);
-  margin-top: 2rem;
+  display: block;
 }
 
 .room-settings {
@@ -31,4 +31,5 @@ input[type="color"]::-webkit-color-swatch {
 .room-settings-color-container {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
