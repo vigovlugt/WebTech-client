@@ -1,6 +1,6 @@
 import RoomService from "../../../services/RoomService.js";
-import { html } from "../../../utils/utils.js";
-import AuthService from "../../../services/AuthService.js"
+import { html, htmlEscape } from "../../../utils/utils.js";
+import AuthService from "../../../services/AuthService.js";
 
 export default class RoomChatMessage extends HTMLElement {
   constructor() {
@@ -13,15 +13,17 @@ export default class RoomChatMessage extends HTMLElement {
 
     const isOwnMessage = userId === messageUserId;
 
-    this.innerHTML = html`
-      <div class="chat-message-row ${isOwnMessage ? "chat-message-self" : null}">
-        <img class="chat-message-user-image" src="https://agile114.science.uva.nl/api/users/image.php?id=${messageUserId}">
-        <div class="chat-message-container">
-          <p class="chat-message-content">
-          ${content}
-        </p>
-        </div>
-      </div>`;
+    this.innerHTML = html` <div
+      class="chat-message-row ${isOwnMessage ? "chat-message-self" : null}"
+    >
+      <img
+        class="chat-message-user-image"
+        src="https://agile114.science.uva.nl/api/users/image.php?id=${messageUserId}"
+      />
+      <div class="chat-message-container">
+        <p class="chat-message-content">${htmlEscape(content)}</p>
+      </div>
+    </div>`;
   }
 }
 

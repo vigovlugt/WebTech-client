@@ -1,6 +1,15 @@
 import MessageType from "../../../constants/MessageType.js";
+import AuthService from "../../../services/AuthService.js";
 import RoomService from "../../../services/RoomService.js";
 import { html } from "../../../utils/utils.js";
+
+const roomCard = (room) =>
+  html`<room-card
+    style="margin-right:1rem;margin-bottom:1rem;"
+    id="${room.id}"
+    name="${room.name}"
+    ownerId="${room.ownerId}"
+  ></room-card>`;
 
 export default class RoomOverview extends HTMLElement {
   eventListener = null;
@@ -14,27 +23,26 @@ export default class RoomOverview extends HTMLElement {
 
   render() {
     const rooms = RoomService.instance.rooms;
+    const userId = AuthService.instance.getUserId();
+    const myRooms = rooms.filter((r) => r.ownerId === userId);
+    const otherRooms = rooms.filter((r) => r.ownerId !== userId);
 
     this.innerHTML = html`<div
       class="room-overview"
       style="${this.getAttribute("style")}"
     >
       <div class="room-overview-header">
-        <h2>Rooms</h1>
+        <h2>My Rooms</h1>
         <button class="room-overview-create-btn">Create new room</button>
       </div>
       <div class="room-container">
-      ${rooms
-        .map(
-          (room) =>
-            html`<room-card
-              style="margin-right:1rem;margin-bottom:1rem;"
-              id="${room.id}"
-              name="${room.name}"
-              ownerId="${room.ownerId}"
-            ></room-card>`
-        )
-        .join("")}
+      ${myRooms.map(roomCard).join("")}
+      </div>
+      <div class="room-overview-header">
+        <h2>Public Rooms</h1>
+      </div>
+      <div class="room-container">
+      ${otherRooms.map(roomCard).join("")}
       </div>
     </div>`;
 

@@ -21,8 +21,7 @@ export default class Router {
   }
 
   onRouteChange() {
-    const currentPath = window.location.pathname;
-    console.log("PATH:", currentPath);
+    const currentPath = window.location.hash;
 
     let routeMatch = null;
     let route =
@@ -60,7 +59,7 @@ export default class Router {
   }
 
   goto(path) {
-    history.pushState({}, null, path);
+    history.pushState({}, null, `#${path}`);
     this.onRouteChange();
   }
 }
