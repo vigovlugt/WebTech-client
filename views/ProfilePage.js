@@ -6,7 +6,13 @@ export default class ProfilePage extends HTMLElement {
 
   static style = html`<style>
     .app {
-      background: linear-gradient(0deg, rgba(10,43,8,1) 0%, rgba(22,46,27,1) 17%, rgba(41,83,56,1) 46%, rgba(29,185,84,1) 100%);
+      background: linear-gradient(
+        0deg,
+        rgba(10, 43, 8, 1) 0%,
+        rgba(22, 46, 27, 1) 17%,
+        rgba(41, 83, 56, 1) 46%,
+        rgba(29, 185, 84, 1) 100%
+      );
     }
 
     .profile-avatar {
@@ -62,7 +68,7 @@ export default class ProfilePage extends HTMLElement {
       border: 1px solid black;
     }
 
-    #profile-table tr td{
+    #profile-table tr td {
       padding: 1px 8px;
     }
 
@@ -84,93 +90,76 @@ export default class ProfilePage extends HTMLElement {
     display_name: "",
     email: "",
     followers: {
-      total: 3829
+      total: 3829,
     },
     id: "",
     product: "",
-    country: ""
+    country: "",
   };
 
   artist = {
     external_urls: {
-      spotify: ""
+      spotify: "",
     },
-    name : "",
+    name: "",
     images: [
       {
         url: "/images/profile-placeholder.png",
       },
     ],
-  }
+  };
 
   track = {
-    name : "",
-    artists : [this.artist],
+    name: "",
+    artists: [this.artist],
     external_urls: {
-      spotify: ""
+      spotify: "",
     },
-    album : {
-      images : [
+    album: {
+      images: [
         {
-          url : ""
-        }
-      ]
-    }
-  }
+          url: "",
+        },
+      ],
+    },
+  };
 
   stats = {
     medium_tracks: {
-      items: [
-        this.track
-      ]
+      items: [],
     },
     long_tracks: {
-      items: [
-        this.track
-      ]
+      items: [],
     },
     short_tracks: {
-      items: [
-        this.track
-      ]
+      items: [],
     },
     medium_artists: {
-      items: [
-        this.artist
-      ]
+      items: [],
     },
     long_artists: {
-      items: [
-        this.artist
-      ]
+      items: [],
     },
     short_artists: {
-      items: [
-        this.track
-      ]
+      items: [],
     },
     history: {
-      items: [
-        {
-          track: this.track
-        }
-      ]
-    }
-  }
+      items: [],
+    },
+  };
 
   render() {
-    this.innerHTML = html`
-      <div class="container">
-        <div class="profile">
-          <div class="profile-info">
-            <img
-              class="profile-avatar"
-              src="${this.spotifyProfile.images[0].url}"
-              height="128"
-              width="128"
-            />
-            <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-            <table id="profile-table">
+    this.innerHTML = html` <div class="container">
+      <div class="profile">
+        <div class="profile-info">
+          <img
+            class="profile-avatar"
+            src="${this.spotifyProfile.images[0].url}"
+            height="128"
+            width="128"
+          />
+          <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+          <table id="profile-table">
             <tr>
               <td>Gebruikersnaam</td>
               <td class="profile-item">${this.spotifyProfile.id}</td>
@@ -181,7 +170,9 @@ export default class ProfilePage extends HTMLElement {
             </tr>
             <tr>
               <td>Volgers</td>
-              <td class="profile-item">${this.spotifyProfile.followers.total}</td>
+              <td class="profile-item">
+                ${this.spotifyProfile.followers.total}
+              </td>
             </tr>
             <tr>
               <td>Type account</td>
@@ -212,7 +203,8 @@ export default class ProfilePage extends HTMLElement {
             <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section>
           </div>
         </div>
-      </div>`;
+      </div>
+    </div>`;
   }
 
   connectedCallback() {
@@ -222,19 +214,24 @@ export default class ProfilePage extends HTMLElement {
   }
 
   logProfileWatch(watcher, watched) {
-    const http = new XMLHttpRequest()
+    const http = new XMLHttpRequest();
 
-    http.open("GET", "https://agile114.science.uva.nl/api/logging/profile.php?watcher=" + watcher + "&watched=" + watched)
-    http.send()
+    http.open(
+      "GET",
+      "https://agile114.science.uva.nl/api/logging/profile.php?watcher=" +
+        watcher +
+        "&watched=" +
+        watched
+    );
+    http.send();
 
-    http.onload = () => console.log(http.responseText)
+    http.onload = () => console.log(http.responseText);
   }
-
 
   async fetchProfile() {
     let userId = AuthService.instance.getUserId();
     if (window.Router.currentMatch[1]) {
-      this.logProfileWatch(userId, window.Router.currentMatch[1])
+      this.logProfileWatch(userId, window.Router.currentMatch[1]);
       userId = window.Router.currentMatch[1];
     }
 
@@ -268,6 +265,5 @@ export default class ProfilePage extends HTMLElement {
     this.render();
   }
 }
-
 
 customElements.define(ProfilePage.pageName, ProfilePage);

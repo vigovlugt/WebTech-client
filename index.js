@@ -1,23 +1,22 @@
+// Services
 import Router from "./modules/router/router.js";
 import AuthService from "./services/AuthService.js";
 import SyncService from "./services/SyncService.js";
 import RoomService from "./services/RoomService.js";
 
-// Import pages
+// Pages
 import ProfilePage from "./views/ProfilePage.js";
 import IndexPage from "./views/IndexPage.js";
 import RoomPage from "./views/RoomPage.js";
 
-// Import components
-import "./components/HelloMessage.js";
-import "./components/Counter.js";
-import "./components/UserBadge.js";
-
+// Modules
 import "./modules/rooms/index.js";
 import "./modules/chat/index.js";
 import "./modules/profile/index.js";
+import "./modules/active-device/index.js";
+import ActiveDeviceService from "./modules/active-device/services/ActiveDeviceService.js";
 
-async function startServices() {
+function init() {
   new AuthService().init();
   document
     .querySelector(".profile-image")
@@ -29,6 +28,7 @@ async function startServices() {
 
   new SyncService().init();
   new RoomService().init();
+  new ActiveDeviceService().init();
 
   new Router(
     [
@@ -50,4 +50,4 @@ async function startServices() {
   );
 }
 
-startServices();
+init();

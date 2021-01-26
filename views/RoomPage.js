@@ -4,8 +4,9 @@ import RoomService from "../services/RoomService.js";
 import SyncService from "../services/SyncService.js";
 import { html } from "../utils/utils.js";
 
-const roomTabs = (tabs, flex) => html`<room-tabs
+const roomTabs = (tabs, flex, defaultTab = 0) => html`<room-tabs
   flex="${flex}"
+  defaultTab="${defaultTab}"
   tabs=${`'
 ${JSON.stringify(tabs)}'`}
 ></room-tabs>`;
@@ -106,13 +107,6 @@ export default class RoomPage extends HTMLElement {
       });
     }
 
-    console.log(
-      roomTabs(
-        tabs.reduce((list, tab) => [...list, tab], []),
-        1
-      )
-    );
-
     this.innerHTML = html`
       <div class="room-page">
         <div class="room-header-container">
@@ -132,7 +126,8 @@ export default class RoomPage extends HTMLElement {
                 .join("")
             : roomTabs(
                 tabs.reduce((list, tabList) => [...list, ...tabList], []),
-                1
+                1,
+                2
               )}
         </div>
         <room-player></room-player>

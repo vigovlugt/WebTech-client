@@ -1,0 +1,37 @@
+active-device-modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.active-device-modal-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.active-device-image {
+  display: block;
+  margin: 1rem auto;
+}
+
+.active-device-modal-devices {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.active-device-modal-device {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}

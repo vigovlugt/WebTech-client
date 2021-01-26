@@ -15,4 +15,7 @@ export default class MessageType {
   static ROOM_DELETE = "ROOM_DELETE";
   static ROOM_SET_COLOR = "ROOM_SET_COLOR";
   static ROOM_CHAT_MESSAGE = "ROOM_CHAT_MESSAGE";
+
+  static AVAILABLE_DEVICES = "AVAILABLE_DEVICES";
+  static SET_ACTIVE_DEVICE = "SET_ACTIVE_DEVICE";
 }

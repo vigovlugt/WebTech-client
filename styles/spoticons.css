@@ -1,0 +1,685 @@
+@font-face {
+  font-family: glue1-spoticon;
+  src: url(https://open.scdn.co/cdn/fonts/spoticon_regular_2.d319d911.woff2)
+      format("woff2"),
+    url(https://open.scdn.co/cdn/fonts/spoticon_regular_2.ff4c6091.woff)
+      format("woff"),
+    url(https://open.scdn.co/cdn/fonts/spoticon_regular_2.127670b5.ttf)
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+[class*=" spoticon-"]:before,
+[class^="spoticon-"]:before {
+  font-family: glue1-spoticon;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: inherit;
+  vertical-align: bottom;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.spoticon-pause-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-pause-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-pause-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-play-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-play-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-play-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-shuffle-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-shuffle-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-shuffle-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-skip-back-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-skip-back-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-skip-back-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-skip-forward-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-skip-forward-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-skip-forward-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-skipback15-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-skipback15-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-skipback15-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-skipforward15-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-skipforward15-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-skipforward15-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-repeat-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-repeat-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-repeat-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-repeatonce-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-repeatonce-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-repeatonce-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-menu-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-menu-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-artist-placeholder-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-track-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-track-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-video-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-video-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-video-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-volume-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-volume-off-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-volume-onewave-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-volume-twowave-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-spotifylogo-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-spotifylogo-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-spotify-connect-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-spotify-connect-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-spotify-connect-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-chromecast-disconnected-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-connect-to-devices-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-connect-to-devices-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-arm-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-arm-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-car-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-car-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-computer-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-computer-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-mobile-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-mobile-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-multispeaker-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-multispeaker-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-other-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-other-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-speaker-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-speaker-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-tablet-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-tablet-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-device-tv-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-device-tv-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-devices-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-devices-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-heart-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-heart-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-heart-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-heart-active-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-heart-active-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-heart-active-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-block-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-block-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-ban-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-ban-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-thumbs-down-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-thumbs-down-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-thumbs-up-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-thumbs-up-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-ellipsis-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-ellipsis-24:before {
+  content: "";
+  font-size: 24px;
+  position: relative;
+  top: 1px;
+}
+
+.spoticon-ellipsis-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-add-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-added-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-remove-16:before,
+.spoticon-x-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-queue-16:before {
+  content: "";
+  font-size: 16px;
+  -webkit-transform: translateX(-1px);
+  transform: translateX(-1px);
+}
+
+.spoticon-chart-down-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chart-down-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-chart-new-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chart-new-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-chart-up-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chart-up-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-radio-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-search-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-search-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-add-to-playlist-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-browse-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-now-playing-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-now-playing-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-now-playing-active-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-artist-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-androidshare-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-me-alt-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-playlist-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-playlist-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-playlist-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-album-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-album-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-artist-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-artist-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-podcasts-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-podcasts-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-warning-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-offline-64:before {
+  content: "";
+  font-size: 64px;
+}
+
+.spoticon-facebook-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-facebook-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-fullscreen-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-fullscreen-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-fullscreen-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-minimise-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-minimise-24:before {
+  content: "";
+  font-size: 24px;
+}
+
+.spoticon-minimise-32:before {
+  content: "";
+  font-size: 32px;
+}
+
+.spoticon-helpcircle-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-warning-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chevron-up-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chevron-down-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+.spoticon-chevron-left-16:before {
+  content: "";
+  font-size: 16px;
+}
+
+[dir="rtl"] .spoticon-chevron-left-16:before,
+[dir="rtl"] .spoticon-helpcircle-16:before {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.spoticon-addfollow-16:before {
+  content: "";
+  font-size: 16px;
+}

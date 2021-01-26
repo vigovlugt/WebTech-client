@@ -1,6 +1,7 @@
 import MessageType from "../../../constants/MessageType.js";
 import RoomService from "../../../services/RoomService.js";
 import { html } from "../../../utils/utils.js";
+import ActiveDeviceService from "../../active-device/services/ActiveDeviceService.js";
 
 const pauseSvg = html`<svg
   height="16"
@@ -70,8 +71,6 @@ export default class RoomPlayer extends HTMLElement {
         <button class="player-pause">${playingSvg}</button>
         <button class="player-next">${nextSvg}</button>
       </div>
-
-      <div class="player-settings"></div>
     </div>`;
 
     this.setEventListeners(isPlaying);
