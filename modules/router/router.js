@@ -1,7 +1,3 @@
-const route404 = {
-  page: null,
-};
-
 export default class Router {
   routes = [];
 
@@ -10,19 +6,18 @@ export default class Router {
   currentPage = null;
 
   constructor(routes, element, styleElement) {
+    window.Router = this;
+
     this.routes = routes;
     this.element = element;
     this.styleElement = styleElement;
 
     this.onRouteChange();
     window.addEventListener("popstate", () => this.onRouteChange());
-
-    window.Router = this;
   }
 
   onRouteChange() {
-    const currentPath = window.location.pathname;
-    console.log("PATH:", currentPath);
+    const currentPath = window.location.hash;
 
     let routeMatch = null;
     let route =
@@ -60,7 +55,7 @@ export default class Router {
   }
 
   goto(path) {
-    history.pushState({}, null, path);
+    history.pushState({}, null, `#${path}`);
     this.onRouteChange();
   }
 }

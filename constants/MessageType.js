@@ -13,4 +13,6 @@ export default class MessageType {
   static ROOM_TRACK_UPVOTE = "ROOM_TRACK_UPVOTE";
   static ROOM_TRACK_DOWNVOTE = "ROOM_TRACK_DOWNVOTE";
   static ROOM_DELETE = "ROOM_DELETE";
+  static ROOM_SET_COLOR = "ROOM_SET_COLOR";
+  static ROOM_CHAT_MESSAGE = "ROOM_CHAT_MESSAGE";
 }

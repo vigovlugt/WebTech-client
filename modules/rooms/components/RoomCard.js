@@ -6,7 +6,6 @@ export default class RoomCard extends HTMLElement {
     super();
 
     const id = this.getAttribute("id");
-    const style = this.getAttribute("style");
 
     const room = RoomService.instance.getRoom(id);
 
@@ -14,7 +13,10 @@ export default class RoomCard extends HTMLElement {
       ? room.playerState.currentTrack.track
       : null;
 
-    this.innerHTML = html`<div class="room-card" style="${style}">
+    this.innerHTML = html`<div
+      class="room-card"
+      style="background-color:${room.color};"
+    >
       <h3>${room.name}</h3>
       <div class="room-card-profile-images">
         ${room.users
@@ -44,7 +46,6 @@ export default class RoomCard extends HTMLElement {
       </div>
     </div>`;
     this.onclick = () => {
-      RoomService.instance.joinRoom(id);
       window.Router.goto("/rooms/" + id);
     };
   }

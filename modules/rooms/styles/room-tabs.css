@@ -17,11 +17,13 @@
 
 .room-tabs-container {
   display: flex;
+  overflow-x: auto;
 }
 
 room-tabs {
   flex: 1;
   padding: 1rem;
+  width: 100%;
 }
 
 .room-tabs {
