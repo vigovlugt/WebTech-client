@@ -42,4 +42,6 @@
 
 .profile-artist-section {
   margin-bottom: 2.5rem;
+  float: right;
+  width: 45%;
 }

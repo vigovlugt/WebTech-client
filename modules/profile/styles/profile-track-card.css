@@ -49,6 +49,8 @@
 
 .profile-track-section {
   margin-bottom: 2.5rem;
+  float: left;
+  width: 45%;
 }
 
 a {
