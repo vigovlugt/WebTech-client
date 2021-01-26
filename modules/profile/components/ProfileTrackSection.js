@@ -19,14 +19,14 @@ export default class ProfileTrackSection extends HTMLElement {
       <div class="profile-track-section-tracks">
         ${tracks.slice(0, this.isExpanded ? undefined : 3).map(
           (t, i) =>
-            html`<a href="${t.external_urls.spotify}"><profile-track-card
+            html`<profile-track-card
               id="${t.id}"
-              test="${t.external_urls.spotify}"
+              url="${t.external_urls.spotify}"
               number="${i + 1}"
               name="${t.name}"
               artist="${t.artists[0].name}"
               imageSrc="${t.album.images[t.album.images.length - 1].url}"
-            ></profile-track-card></a>`
+            ></profile-track-card>`
         ).join("")}
       </div>
       <button class="profile-track-section-expand">${this.isExpanded ? 'Collapse': 'Expand'}</button>
