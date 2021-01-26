@@ -1,0 +1,77 @@
+:root {
+    --bg: #181818;
+    --bg-light: #282828;
+    --primary: #1db954;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(10,43,8,1) 0%, rgba(46,154,84,1) 100%);
+}
+
+.intro-section {
+    padding-top: 30px;
+}
+
+.logo-container {
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+.top-container {
+    padding: 0 20px;
+    text-align: center;
+}
+
+h2.logo-text {
+    color: white;
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: 0 2px 0 black;
+}
+
+h1 {
+    color: white;
+    text-shadow: 0 2px 0 black;
+    font-size: 54px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    font-size: 21px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--primary);
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: white;
+    padding: 15px 35px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.middle-container {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
