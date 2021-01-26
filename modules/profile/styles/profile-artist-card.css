@@ -1,0 +1,41 @@
+.profile-artist-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  background-color: #eeeeee;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.profile-artist-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.profile-artist-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
+}
+
+.profile-artist-name {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  color: black;
+}
+
+.profile-artist-number {
+  color:black;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  margin-left: .5rem;
+  width: 28px;
+}
+.profile-artist-section-expand {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+}

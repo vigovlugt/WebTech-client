@@ -15,6 +15,7 @@ import "./components/UserBadge.js";
 
 import "./modules/rooms/index.js";
 import "./modules/chat/index.js";
+import "./modules/profile/index.js";
 
 async function startServices() {
   new AuthService().init();

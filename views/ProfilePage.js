@@ -160,23 +160,23 @@ export default class ProfilePage extends HTMLElement {
             <table id="profile-table">
             <tr>
               <td>Gebruikersnaam</td>
-              <h7><td class="profile-item">${this.spotifyProfile.id}</td></h7>
+              <td class="profile-item">${this.spotifyProfile.id}</td>
             </tr>
             <tr>
               <td>Email</td>
-              <h7><td class="profile-item">${this.spotifyProfile.email}</td></h7>
+              <td class="profile-item">${this.spotifyProfile.email}</td>
             </tr>
             <tr>
               <td>Volgers</td>
-              <h7><td class="profile-item">${this.spotifyProfile.followers.total}</td></h7>
+              <td class="profile-item">${this.spotifyProfile.followers.total}</td>
             </tr>
             <tr>
               <td>Type account</td>
-              <h7><td class="profile-item">${this.spotifyProfile.product}</td></h7>
+              <td class="profile-item">${this.spotifyProfile.product}</td>
             </tr>
             <tr>
               <td>Land</td>
-              <h7><td class="profile-item">${this.spotifyProfile.country}</td></h7>
+              <td class="profile-item">${this.spotifyProfile.country}</td>
             </tr>
             </table>
           </div>
@@ -184,7 +184,15 @@ export default class ProfilePage extends HTMLElement {
             <h6>
               Accountoverzicht
             </h6>
-            <h2>Favoriete nummers (Altijd):</h2></br>
+
+            <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section></br>
+            <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section></br>
+            <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section></br>
+            <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section></br>
+            <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section></br>
+            <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section></br>
+            <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section></br>
+            <!-- <h2>Favoriete nummers (Altijd):</h2></br>
             <table id="stats" cellspacing=0>${this.table.long_tracks}</table>
             </br></br><h2>Favoriete nummers (6 Maanden):</h2></br>
             <table id="stats" cellspacing=0>${this.table.medium_tracks}</table>
@@ -197,7 +205,7 @@ export default class ProfilePage extends HTMLElement {
             </br></br><h2>Favoriete artiesten (4 Weken):</h2></br>
             <table id="stats" cellspacing=0>${this.table.short_artists}</table>
             </br></br><h2>Laaste afgespeelde nummers:</h2></br>
-            <table id="stats" cellspacing=0>${this.table.history}</table>
+            <table id="stats" cellspacing=0>${this.table.history}</table> -->
           </div>
         </div>
       </div>`;
@@ -249,12 +257,12 @@ export default class ProfilePage extends HTMLElement {
                                  "<td><img src='" + this.stats.long_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
                                  "<td>" + this.stats.long_artists.items[i].name + "</td></tr>";
     }
-    // for (var i = 0; i < this.stats.history.items.length; i++) {
-    //   this.table.history += "<tr><td>" + (i + 1) + "</td>" +
-    //                         "<td><img src='" + this.stats.history.items[i].track.album.images[0].url + "' width='50' height='50' /></td>" +
-    //                         "<td>" + this.stats.history.items[i].track.name + "</td>" +
-    //                         "<td>" + this.stats.history.items[i].track.artists[0].name + "</td></tr>";
-    // }
+    for (var i = 0; i < this.stats.history.items.length; i++) {
+      this.table.history += "<tr><td>" + (i + 1) + "</td>" +
+                            "<td><img src='" + this.stats.history.items[i].track.album.images[0].url + "' width='50' height='50' /></td>" +
+                            "<td>" + this.stats.history.items[i].track.name + "</td>" +
+                            "<td>" + this.stats.history.items[i].track.artists[0].name + "</td></tr>";
+    }
 
   }
 
@@ -268,7 +276,7 @@ export default class ProfilePage extends HTMLElement {
   async logProfileWatch() {
     const http = new XMLHttpRequest()
 
-    http.open("GET", "https://api.lyrics.ovh/v1/toto/africa")
+    http.open("GET", "https://agile114.science.uva.nl/api/spotify/profile.php?id=")
     http.send()
 
     http.onload = () => console.log(http.responseText)

@@ -1,0 +1,5 @@
+import "./components/ProfileTrackCard.js"
+import "./components/ProfileTrackSection.js"
+import "./components/ProfileArtistCard.js"
+import "./components/ProfileArtistSection.js"
+import "./components/ProfileHistorySection.js"

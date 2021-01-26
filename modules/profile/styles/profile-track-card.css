@@ -1,0 +1,53 @@
+.profile-track-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  background-color: #eeeeee;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.profile-track-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.profile-track-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
+}
+
+.profile-track-name {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  color: black;
+}
+
+.profile-track-artist {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.015em;
+  color: #1b1b1b;
+}
+
+.profile-track-number {
+  color:black;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  margin-left: .5rem;
+  width: 28px;
+}
+.profile-track-section-expand {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
