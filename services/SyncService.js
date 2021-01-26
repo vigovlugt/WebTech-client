@@ -1,4 +1,5 @@
 import MessageType from "../constants/MessageType.js";
+import ActiveDeviceService from "../modules/active-device/services/ActiveDeviceService.js";
 import AuthService from "./AuthService.js";
 import RoomService from "./RoomService.js";
 
@@ -48,6 +49,9 @@ export default class SyncService extends EventTarget {
         break;
       case MessageType.ROOM_SYNC:
         RoomService.instance.onSyncRoom(data);
+        break;
+      case MessageType.AVAILABLE_DEVICES:
+        ActiveDeviceService.instance.openActiveDeviceModal(data);
         break;
     }
   }

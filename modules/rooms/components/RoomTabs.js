@@ -6,6 +6,8 @@ export default class RoomTabs extends HTMLElement {
   constructor() {
     super();
 
+    this.currentTab = +this.getAttribute("defaultTab");
+
     this.render();
   }
 
