@@ -83,9 +83,24 @@ export default class ProfilePage extends HTMLElement {
     country: ""
   };
 
+  artist = {
+    external_urls: {
+      spotify: ""
+    },
+    name : "",
+    images: [
+      {
+        url: "/images/profile-placeholder.png",
+      },
+    ],
+  }
+
   track = {
     name : "",
     artists : [this.artist],
+    external_urls: {
+      spotify: ""
+    },
     album : {
       images : [
         {
@@ -93,10 +108,6 @@ export default class ProfilePage extends HTMLElement {
         }
       ]
     }
-  }
-
-  artist = {
-    name : ""
   }
 
   stats = {
@@ -127,24 +138,18 @@ export default class ProfilePage extends HTMLElement {
     },
     short_artists: {
       items: [
-        this.artist
+        this.track
       ]
     },
     history: {
       items: [
-        this.track
+        {
+          track: this.track
+        }
       ]
     }
   }
-  table = {
-    medium_tracks : "",
-    short_tracks : "",
-    long_tracks : "",
-    medium_artists : "",
-    short_artists : "",
-    long_artists : "",
-    history : "",
-  }
+
   render() {
     this.innerHTML = html`
       <div class="container">
@@ -185,87 +190,17 @@ export default class ProfilePage extends HTMLElement {
               Accountoverzicht
             </h6>
 
-            <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section></br>
-            <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section></br>
-            <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section></br>
-            <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section></br>
-            <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section></br>
-            <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section></br>
-            <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section></br>
-            <!-- <h2>Favoriete nummers (Altijd):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.long_tracks}</table>
-            </br></br><h2>Favoriete nummers (6 Maanden):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.medium_tracks}</table>
-            </br></br><h2>Favoriete nummers (4 Weken):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.short_tracks}</table>
-            </br></br><h2>Favoriete artiesten (Altijd):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.long_artists}</table>
-            </br></br><h2>Favoriete artiesten (6 Maanden):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.medium_artists}</table>
-            </br></br><h2>Favoriete artiesten (4 Weken):</h2></br>
-            <table id="stats" cellspacing=0>${this.table.short_artists}</table>
-            </br></br><h2>Laaste afgespeelde nummers:</h2></br>
-            <table id="stats" cellspacing=0>${this.table.history}</table> -->
+            <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section>
+            <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section>
+            <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section>
+            <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section>
+            <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section>
+            <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section>
+            <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section>
           </div>
         </div>
       </div>`;
   }
-
-  test() {
-    alert('testing');
-  }
-
-  setStats() {
-    this.table.short_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
-    this.table.medium_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
-    this.table.long_tracks = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
-    this.table.short_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
-    this.table.medium_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
-    this.table.long_artists = "<tr><th>Nr.</th><th>Artist</th><th>Name</th></tr>";
-    this.table.history = "<tr><th>Nr.</th><th>Song</th><th>Name</th><th>Artist</th></tr>";
-
-    for (var i = 0; i < this.stats.medium_tracks.items.length; i++) {
-      this.table.medium_tracks += "<tr><td>" + (i + 1) + "</td>" +
-      "<td><img src='" + this.stats.medium_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
-      "<td>" + this.stats.medium_tracks.items[i].name + "</td>" +
-      "<td>" + this.stats.medium_tracks.items[i].artists[0].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.short_tracks.items.length; i++) {
-      this.table.short_tracks += "<tr><td>" + (i + 1) + "</td>" +
-                                 "<td><img src='" + this.stats.short_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
-                                 "<td>" + this.stats.short_tracks.items[i].name + "</td>" +
-                                 "<td>" + this.stats.short_tracks.items[i].artists[0].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.long_tracks.items.length; i++) {
-      this.table.long_tracks += "<tr><td>" + (i + 1) + "</td>" +
-                                "<td><img src='" + this.stats.long_tracks.items[i].album.images[0].url + "' width='50' height='50' /></td>" +
-                                "<td>" + this.stats.long_tracks.items[i].name + "</td>" +
-                                "<td>" + this.stats.long_tracks.items[i].artists[0].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.medium_artists.items.length; i++) {
-      this.table.medium_artists += "<tr><td>" + (i + 1) + "</td>" +
-                                   "<td><img src='" + this.stats.medium_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
-                                   "<td>" + this.stats.medium_artists.items[i].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.short_artists.items.length; i++) {
-      this.table.short_artists += "<tr><td>" + (i + 1) + "</td>" +
-                                  "<td><img src='" + this.stats.short_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
-                                  "<td>" + this.stats.short_artists.items[i].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.long_artists.items.length; i++) {
-      this.table.long_artists += "<tr><td>" + (i + 1) + "</td>" +
-                                 "<td><img src='" + this.stats.long_artists.items[i].images[0].url + "' width='50' height='50' /></td>" +
-                                 "<td>" + this.stats.long_artists.items[i].name + "</td></tr>";
-    }
-    for (var i = 0; i < this.stats.history.items.length; i++) {
-      this.table.history += "<tr><td>" + (i + 1) + "</td>" +
-                            "<td><img src='" + this.stats.history.items[i].track.album.images[0].url + "' width='50' height='50' /></td>" +
-                            "<td>" + this.stats.history.items[i].track.name + "</td>" +
-                            "<td>" + this.stats.history.items[i].track.artists[0].name + "</td></tr>";
-    }
-
-  }
-
 
   connectedCallback() {
     this.render();
@@ -273,10 +208,10 @@ export default class ProfilePage extends HTMLElement {
     this.fetchStats();
   }
 
-  async logProfileWatch() {
+  logProfileWatch(watcher, watched) {
     const http = new XMLHttpRequest()
 
-    http.open("GET", "https://agile114.science.uva.nl/api/spotify/profile.php?id=")
+    http.open("GET", "https://agile114.science.uva.nl/api/logging/profile.php?watcher=" + watcher + "&watched=" + watched)
     http.send()
 
     http.onload = () => console.log(http.responseText)
@@ -286,6 +221,7 @@ export default class ProfilePage extends HTMLElement {
   async fetchProfile() {
     let userId = AuthService.instance.getUserId();
     if (window.Router.currentMatch[1]) {
+      this.logProfileWatch(userId, window.Router.currentMatch[1])
       userId = window.Router.currentMatch[1];
     }
 
@@ -316,11 +252,9 @@ export default class ProfilePage extends HTMLElement {
     const json = await res.json();
 
     this.stats = json;
-    this.setStats();
     this.render();
   }
 }
-
 
 
 customElements.define(ProfilePage.pageName, ProfilePage);
