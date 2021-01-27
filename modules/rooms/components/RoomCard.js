@@ -33,7 +33,10 @@ export default class RoomCard extends HTMLElement {
       <div class="room-card-track">
         <img
           class="room-card-track-image"
-          src="${currentTrack ? currentTrack.album.imageUrl : ""}"
+          src="${currentTrack
+            ? currentTrack.album.imageUrl
+            : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="}"
+          alt="Room Track"
         />
         <div class="room-card-track-info">
           <a class="room-card-track-name"

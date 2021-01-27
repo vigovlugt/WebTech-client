@@ -14,7 +14,7 @@ export default class RoomSearchResult extends HTMLElement {
     const artist = this.getAttribute("artist");
 
     this.innerHTML = html`<div class="search-result">
-      <img class="search-result-image" src="${imageUrl}" />
+      <img class="search-result-image" src="${imageUrl}" alt="Search result" />
       <div class="search-result-info">
         <a class="search-result-name">${name}</a>
         <a class="search-result-artist">${artist}</a>

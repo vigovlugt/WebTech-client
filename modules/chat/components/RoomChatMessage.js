@@ -19,6 +19,7 @@ export default class RoomChatMessage extends HTMLElement {
       <img
         class="chat-message-user-image"
         src="https://agile114.science.uva.nl/api/users/image.php?id=${messageUserId}"
+        alt="Message Owner Image"
       />
       <div class="chat-message-container">
         <p class="chat-message-content">${htmlEscape(content)}</p>

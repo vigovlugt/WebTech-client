@@ -147,6 +147,7 @@ export default class ProfilePage extends HTMLElement {
           <img
             class="profile-avatar"
             src="${this.spotifyProfile.images[0].url}"
+            alt="Profile Avatar"
             height="128"
             width="128"
           />
