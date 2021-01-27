@@ -19,12 +19,13 @@ export default class ProfileArtistSection extends HTMLElement {
       <div class="profile-artist-section-artists">
         ${artists.slice(0, this.isExpanded ? undefined : 3).map(
           (t, i) =>
-            html`<a href="${t.external_urls.spotify}"><profile-artist-card
+            html`<profile-artist-card
               id="${t.id}"
               number="${i + 1}"
+              url="${t.external_urls.spotify}"
               name="${t.name}"
               imageSrc="${t.images[t.images.length - 1].url}"
-            ></profile-artist-card></a>`
+            ></profile-artist-card>`
         ).join("")}
       </div>
       <button class="profile-artist-section-expand">${this.isExpanded ? 'Collapse': 'Expand'}</button>

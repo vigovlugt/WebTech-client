@@ -5,20 +5,34 @@ export default class ProfileTrackCard extends HTMLElement {
   constructor() {
     super();
 
-    const imageSrc = this.getAttribute("imageSrc");
     const id = this.getAttribute("id");
+    const imageSrc = this.getAttribute("imageSrc");
     const name = this.getAttribute("name");
     const artist = this.getAttribute("artist");
+    const url = this.getAttribute("url");
     const number = +this.getAttribute("number");
 
     this.innerHTML = html` <div class="profile-track-card">
       <span class="profile-track-number">${number}</span>
-      <img class="profile-track-image" src="${imageSrc}" alt="Track" />
+      <a href="${url}"
+        ><img class="profile-track-image" src="${imageSrc}" alt="Track"
+      /></a>
       <div class="profile-track-info">
-        <a class="profile-track-name">${name}</a>
+        <a href="${url}" class="profile-track-name">${name}</a>
         <a class="profile-track-artist">${artist}</a>
       </div>
+      <button class="add_button">+</button>
     </div>`;
+
+    const addButton = this.querySelector(".add_button");
+    addButton.addEventListener(
+      "click",
+      function () {
+        alert(id);
+        RoomService.instance.addToQueue(id);
+      },
+      false
+    );
   }
 }
 

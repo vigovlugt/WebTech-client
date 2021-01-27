@@ -23,17 +23,16 @@ export default class ProfileHistorySection extends HTMLElement {
           .slice(0, this.isExpanded ? undefined : 3)
           .map(
             (t, i) =>
-              html`<a href="${t.track.external_urls.spotify}"
-                ><profile-track-card
+              html`<profile-track-card
                   id="${t.track.id}"
+                  url="${t.track.external_urls.spotify}"
                   number="${i + 1}"
                   name="${t.track.name}"
                   artist="${t.track.artists[0].name}"
                   imageSrc="${t.track.album.images[
                     t.track.album.images.length - 1
                   ].url}"
-                ></profile-track-card
-              ></a>`
+                ></profile-track-card>`
           )
           .join("")}
       </div>

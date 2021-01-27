@@ -42,4 +42,10 @@
 
 .profile-artist-section {
   margin-bottom: 2.5rem;
+  float: left;
+  width: 45%;
+}
+
+.add_button {
+  margin-left: auto;
 }

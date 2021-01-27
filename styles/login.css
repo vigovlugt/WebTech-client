@@ -49,3 +49,17 @@ body {
   font-size: 1.5rem;
   border-radius: 0.5rem;
 }
+
+p {
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+
+a {
+  cursor: pointer;
+  color: white;
+}
+
+a:visited {
+  color: white;
+}

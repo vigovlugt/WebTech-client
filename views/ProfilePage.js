@@ -49,6 +49,14 @@ export default class ProfilePage extends HTMLElement {
       padding: 2rem;
     }
 
+    #tracks {
+      display: flex;
+    }
+
+    #artists {
+      display: flex;
+    }
+
     #stats tr td {
       padding: 8px;
       margin: 8px;
@@ -175,39 +183,26 @@ export default class ProfilePage extends HTMLElement {
               <td>Land</td>
               <td class="profile-item">${this.spotifyProfile.country}</td>
             </tr>
-          </table>
-        </div>
-        <div class="profile-stats">
-          <h6>Accountoverzicht</h6>
-
-          <profile-track-section
-            name="Favoriete nummers (Altijd)"
-            tracks="long_tracks"
-          ></profile-track-section>
-          <profile-track-section
-            name="Favoriete nummers (6 Maanden)"
-            tracks="medium_tracks"
-          ></profile-track-section>
-          <profile-track-section
-            name="Favoriete nummers (4 Weken)"
-            tracks="short_tracks"
-          ></profile-track-section>
-          <profile-artist-section
-            name="Favoriete artiesten (Altijd)"
-            artists="long_artists"
-          ></profile-artist-section>
-          <profile-artist-section
-            name="Favoriete artiesten (6 Maanden)"
-            artists="medium_artists"
-          ></profile-artist-section>
-          <profile-artist-section
-            name="Favoriete artiesten (4 Weken)"
-            artists="short_artists"
-          ></profile-artist-section>
-          <profile-history-section
-            name="Laaste afgespeelde nummers"
-            tracks="history"
-          ></profile-history-section>
+            </table>
+          </div>
+          <div class="profile-stats">
+            <h6>
+              Accountoverzicht
+            </h6>
+            <div id="long">
+              <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section>
+              <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section>
+            </div>
+            <div id="medium">
+              <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section>
+              <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section>
+            </div>
+            <div id="short">
+              <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section>
+              <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section>
+            </div>
+            <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section>
+          </div>
         </div>
       </div>
     </div>`;
