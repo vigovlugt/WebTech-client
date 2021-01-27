@@ -44,7 +44,7 @@ export default class AuthService {
 
     if (!this.accessToken) {
       // User is not authenticated.
-      location.replace("/login.html");
+      location.replace("/homepage.html");
       return;
     }
   }
