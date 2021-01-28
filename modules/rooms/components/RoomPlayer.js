@@ -55,7 +55,10 @@ export default class RoomPlayer extends HTMLElement {
       <div class="player-track">
         <img
           class="player-track-image"
-          src="${currentTrack ? currentTrack.album.imageUrl : ""}"
+          src="${currentTrack
+            ? currentTrack.album.imageUrl
+            : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="}"
+          alt="Current track"
         />
         <div class="player-track-info">
           <a class="player-track-title"

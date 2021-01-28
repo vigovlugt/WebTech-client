@@ -23,6 +23,7 @@ export default class ActiveDeviceModal extends HTMLElement {
       <img
         class="active-device-image"
         src="https://open.scdn.co/cdn/images/connect_header@1x.ecc6912d.png"
+        alt="Active Devices"
       />
       <div class="active-device-modal-devices">
         ${devices

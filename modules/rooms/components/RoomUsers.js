@@ -22,6 +22,7 @@ export default class RoomUsers extends HTMLElement {
               <img
                 class="room-user-image"
                 src="https://agile114.science.uva.nl/api/users/image.php?id=${u.id}"
+                alt="Room user"
               />
               <div>
                 <h4>${u.name}</h4>

@@ -100,7 +100,10 @@ export default class RoomPage extends HTMLElement {
       ],
     ];
 
+    let mobileDefaultTab = 1;
+
     if (isOwner) {
+      mobileDefaultTab++;
       tabs[0].push({
         name: "Settings",
         component: "room-settings",
@@ -127,7 +130,7 @@ export default class RoomPage extends HTMLElement {
             : roomTabs(
                 tabs.reduce((list, tabList) => [...list, ...tabList], []),
                 1,
-                2
+                mobileDefaultTab
               )}
         </div>
         <room-player></room-player>
