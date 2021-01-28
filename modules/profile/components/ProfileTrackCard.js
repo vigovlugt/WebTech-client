@@ -21,7 +21,7 @@ export default class ProfileTrackCard extends HTMLElement {
         <a href="${url}" class="profile-track-name">${name}</a>
         <a class="profile-track-artist">${artist}</a>
       </div>
-      <button class="add_button">+</button>
+      <button id='t' class="add_button">+</button>
     </div>`;
 
     const addButton = this.querySelector(".add_button");
