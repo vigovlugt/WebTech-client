@@ -6,13 +6,7 @@ export default class ProfilePage extends HTMLElement {
 
   static style = html`<style>
     .app {
-      background: linear-gradient(
-        0deg,
-        rgba(10, 43, 8, 1) 0%,
-        rgba(22, 46, 27, 1) 17%,
-        rgba(41, 83, 56, 1) 46%,
-        rgba(29, 185, 84, 1) 100%
-      );
+      background-color: #262626;
     }
 
     .profile-avatar {
@@ -23,8 +17,17 @@ export default class ProfilePage extends HTMLElement {
       display: block;
     }
 
-    .profile-item {
-      color: white;
+    .profile-badges {
+      padding: 1rem;
+      text-align: center;
+      line-height: 2rem;
+    }
+
+    .profile-badge {
+      color: var(--bg);
+      background-color: #eeeeee;
+      margin-bottom: 0.5rem;
+      white-space: nowrap;
     }
 
     .profile-name {
@@ -33,12 +36,15 @@ export default class ProfilePage extends HTMLElement {
     }
 
     .profile-info {
-      position: relative;
-      background-color: var(--bg);
+      background-color: var(--bg-light);
       margin: 0 0;
       flex: 1;
-      border: 1px var(--border-grey) solid;
+      /* border: 1px var(--border-grey) solid; */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
     .profile-stats {
       background-color: white;
       margin: 0 0;
@@ -78,6 +84,47 @@ export default class ProfilePage extends HTMLElement {
 
     .profile {
       display: flex;
+      min-height: calc(100vh - 84px);
+    }
+
+    .profile-section-row {
+      display: flex;
+    }
+
+    profile-track-section {
+      width: calc(50% - 1rem);
+      margin-right: 1rem;
+    }
+
+    profile-artist-section {
+      width: calc(50% - 1rem);
+      margin-left: 1rem;
+    }
+
+    @media only screen and (max-width: 900px) {
+      .profile {
+        flex-direction: column;
+      }
+
+      .container {
+        padding: 0;
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .profile-section-row {
+        flex-direction: column;
+      }
+
+      profile-track-section {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      profile-artist-section {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   </style>`;
 
@@ -149,60 +196,42 @@ export default class ProfilePage extends HTMLElement {
   };
 
   render() {
-    this.innerHTML = html` <div class="container">
-      <div class="profile">
-        <div class="profile-info">
-          <img
-            class="profile-avatar"
-            src="${this.spotifyProfile.images[0].url}"
-            alt="Profile Avatar"
-            height="128"
-            width="128"
-          />
-          <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
-          <table id="profile-table">
-            <tr>
-              <td>Gebruikersnaam</td>
-              <td class="profile-item">${this.spotifyProfile.id}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td class="profile-item">${this.spotifyProfile.email}</td>
-            </tr>
-            <tr>
-              <td>Volgers</td>
-              <td class="profile-item">
-                ${this.spotifyProfile.followers.total}
-              </td>
-            </tr>
-            <tr>
-              <td>Type account</td>
-              <td class="profile-item">${this.spotifyProfile.product}</td>
-            </tr>
-            <tr>
-              <td>Land</td>
-              <td class="profile-item">${this.spotifyProfile.country}</td>
-            </tr>
-            </table>
+    this.innerHTML = html` <div class="container profile">
+      <div class="profile-info">
+        <img
+          class="profile-avatar"
+          src="${this.spotifyProfile.images[0].url}"
+          alt="Profile Avatar"
+          height="128"
+          width="128"
+        />
+        <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
+        <div class="profile-badges">
+          <span class="badge profile-badge">${this.spotifyProfile.id}</span>
+          <span class="badge profile-badge">${this.spotifyProfile.country}</span>
+          <span class="badge profile-badge">${this.spotifyProfile.followers.total} followers</span>
+          <span class="badge profile-badge">${this.spotifyProfile.email}</span>
+        </div>
+        
+
+        </div>
+        <div class="profile-stats">
+          <h6>
+            Accountoverzicht
+          </h6>
+          <div id="long" class="profile-section-row">
+            <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section>
+            <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section>
           </div>
-          <div class="profile-stats">
-            <h6>
-              Accountoverzicht
-            </h6>
-            <div id="long">
-              <profile-track-section name="Favoriete nummers (Altijd)" tracks="long_tracks"></profile-track-section>
-              <profile-artist-section name="Favoriete artiesten (Altijd)" artists="long_artists"></profile-artist-section>
-            </div>
-            <div id="medium">
-              <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section>
-              <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section>
-            </div>
-            <div id="short">
-              <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section>
-              <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section>
-            </div>
-            <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section>
+          <div id="medium" class="profile-section-row">
+            <profile-track-section name="Favoriete nummers (6 Maanden)" tracks="medium_tracks"></profile-track-section>
+            <profile-artist-section name="Favoriete artiesten (6 Maanden)" artists="medium_artists"></profile-artist-section>
           </div>
+          <div id="short" class="profile-section-row">
+            <profile-track-section name="Favoriete nummers (4 Weken)" tracks="short_tracks"></profile-track-section>
+            <profile-artist-section name="Favoriete artiesten (4 Weken)" artists="short_artists"></profile-artist-section>
+          </div>
+          <profile-history-section name="Laaste afgespeelde nummers" tracks="history"></profile-history-section>
         </div>
       </div>
     </div>`;

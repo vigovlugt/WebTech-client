@@ -28,22 +28,20 @@
 }
 
 .profile-artist-number {
-  color:black;
+  color: black;
   font-size: 1.5rem;
   margin-right: 1rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   width: 28px;
 }
 .profile-artist-section-expand {
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .profile-artist-section {
   margin-bottom: 2.5rem;
-  float: left;
-  width: 45%;
 }
 
 .add_button {

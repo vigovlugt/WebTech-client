@@ -18,17 +18,6 @@ export default class IndexPage extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    this.getUsers();
-  }
-
-  async getUsers() {
-    const res = await fetch("https://agile114.science.uva.nl/api/users.php", {
-      headers: AuthService.instance.getFetchHeaders(),
-    });
-    const json = await res.json();
-
-    this.users = json;
-    this.render();
   }
 }
 
