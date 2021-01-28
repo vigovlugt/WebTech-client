@@ -24,7 +24,7 @@ export default class ProfileTrackCard extends HTMLElement {
     </div>`;
 
     const addButton = this.querySelector(".add_button");
-    addButton.addEventListener("click", function(){alert(id); RoomService.instance.addToQueue(id);}, false);
+    addButton.addEventListener("click", function(){ if (RoomService.instance.room != null) {RoomService.instance.addToQueue(id);}}, false);
 
   }
 
