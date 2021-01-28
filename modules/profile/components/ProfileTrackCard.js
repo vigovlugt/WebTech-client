@@ -19,7 +19,7 @@ export default class ProfileTrackCard extends HTMLElement {
       /></a>
       <div class="profile-track-info">
         <a href="${url}" class="profile-track-name">${name}</a>
-        <a class="profile-track-artist">${artist}</a>
+        <a id="t" class="profile-track-artist">${artist}</a>
       </div>
       ${(RoomService.instance.room != null) ? '<button class="add_button">+</button>': ''}
     </div>`;
