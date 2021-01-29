@@ -146,6 +146,16 @@ export default class RoomPage extends HTMLElement {
         shareBtn.innerHTML = "Share";
       }, 3000);
     });
+
+    const main = this.querySelector(".room-page-main");
+    main.addEventListener("dragover", (e) => e.preventDefault());
+    main.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const url = e.dataTransfer.getData("Url");
+      RoomService.instance.addToQueue(
+        url.replace("https://open.spotify.com/track/", "")
+      );
+    });
   }
 
   connectedCallback() {
