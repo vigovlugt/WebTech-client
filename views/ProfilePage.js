@@ -196,11 +196,16 @@ export default class ProfilePage extends HTMLElement {
   };
 
   render() {
+    let userId = AuthService.instance.getUserId();
+    if (window.Router.currentMatch[1]) {
+      userId = window.Router.currentMatch[1];
+    }
+
     this.innerHTML = html` <div class="container profile">
       <div class="profile-info">
         <img
           class="profile-avatar"
-          src="${this.spotifyProfile.images[0].url}"
+          src="${`https://agile114.science.uva.nl/api/users/image.php?id=${userId}`}"
           alt="Profile Avatar"
           height="128"
           width="128"
@@ -208,8 +213,12 @@ export default class ProfilePage extends HTMLElement {
         <h1 class="profile-name">${this.spotifyProfile.display_name}</h1>
         <div class="profile-badges">
           <span class="badge profile-badge">${this.spotifyProfile.id}</span>
-          <span class="badge profile-badge">${this.spotifyProfile.country}</span>
-          <span class="badge profile-badge">${this.spotifyProfile.followers.total} followers</span>
+          <span class="badge profile-badge">${
+            this.spotifyProfile.country
+          }</span>
+          <span class="badge profile-badge">${
+            this.spotifyProfile.followers.total
+          } followers</span>
           <span class="badge profile-badge">${this.spotifyProfile.email}</span>
         </div>
         
