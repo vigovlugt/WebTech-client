@@ -19,17 +19,18 @@ export default class ProfileTrackCard extends HTMLElement {
       /></a>
       <div class="profile-track-info">
         <a href="${url}" class="profile-track-name">${name}</a>
-        <a class="profile-track-artist">${artist}</a>
+        <a id="t" class="profile-track-artist">${artist}</a>
       </div>
-      <button class="add_button">+</button>
+      ${(RoomService.instance.room != null) ? '<button class="add_button">+</button>': ''}
     </div>`;
 
     const addButton = this.querySelector(".add_button");
     addButton.addEventListener(
       "click",
       function () {
-        alert(id);
-        RoomService.instance.addToQueue(id);
+        if (RoomService.instance.room != null) {
+          RoomService.instance.addToQueue(id);
+        }
       },
       false
     );
